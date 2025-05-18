@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --background: #0a0a0a;
+    --foreground: #ededed; */
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cuando el <html> tiene la clase 'dark' */
+/*Este fondo es solo para que no se vea un fondo blanco cuando se estira la pantalla en móviles.*/
+html.dark body {
+  background: #0f172a; /* Fondo negro cuando está en modo oscuro */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Nivel 1: Tamaño normal */
+.accessibility-level-1 {
+  font-size: 1rem;
+}
+
+/* Nivel 2: Aumentar tamaño general */
+.accessibility-level-2 {
+  font-size: 1.125rem;
+}
+
+/* Nivel 3: Tamaño más grande */
+.accessibility-level-3 {
+  font-size: 1.25rem;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Para las notificaciones (barra progreso) */
+@keyframes progressBar {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.animate-progressBar {
+  animation: progressBar 3s linear forwards;
+}
+
+/* No mostrar boton de errores en next */
+nextjs-portal {
+  display: none;
+}
+
+
