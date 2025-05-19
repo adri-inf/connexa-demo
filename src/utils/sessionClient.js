@@ -10,7 +10,7 @@ export const handleLogOut = () => {
 
 export const handleLogIn = (profilePicture, role) => {
   localStorage.setItem('profilePicturePath', profilePicture)
-  localStorage.setItem('role', role)
+  localStorage.setItem('role', 'regular')
 }
 
 // export const getRoleFromLocalStorage = () => {
