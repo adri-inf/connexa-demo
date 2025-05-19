@@ -18,7 +18,7 @@ export default function TopNav () {
 
       <InitFlowbite />
 
-      <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
+      <div className='max-w-screen-xl flex flex-nowrap items-center justify-between mx-auto p-4'>
         <Link href='/' className='flex items-center space-x-3 rtl:space-x-reverse'>
           <img src={logoConnexa} className='h-9' alt='Connexa Logo' />
           <span className={`${nunito.className} hidden hide-logo:block text-xl antialiased self-center font-semibold whitespace-nowrap dark:text-white`}>CONNEXA</span>
