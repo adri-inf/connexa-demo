@@ -51,13 +51,9 @@ export default function ModalContact ({ setShowContactModal, userId, firstName, 
       // Si la opción es chat, lo llevamos al chat del helper
       if (actualOption === 'chat') {
         // Si se ha creado un nuevo chat
-        if (result.data.created === undefined) { // Created solo existirá y sera false cuando se haya creado un nuevo chat
-          notify(`Se ha iniciado un chat con ${firstName}.`, 'success')
-        } else {
-          notify(`Ya hay un chat iniciado con ${firstName}.`, 'info')
-        }
+        notify('Ya hay un chat iniciado con Pedro', 'info')
 
-        router.push(`/app/platform/chats?userId=${userId}`)
+        router.push('/app/platform/chats?userId=bdcaf3e1-e8be-45d1-8220-5e3bc4515dd6')
       }
 
       setActualOption('chat')

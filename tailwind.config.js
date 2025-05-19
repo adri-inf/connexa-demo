@@ -29,7 +29,7 @@ export const theme = {
     }
   },
   screens: {
-    'hide-logo': '350px',
+    'hide-logo': '400px',
     'hide-nav-elements': '1100px',
     xs: '300px', // Nuevo breakpoint para pantallas de 300px en adelante
     xm: '510px', // Nuevo breakpoint para pantallas de 500px en adelante
