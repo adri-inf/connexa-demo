@@ -22,6 +22,17 @@ export default function ProfileContent ({ userId, userData, formData, fetchData 
   const [showContactModal, setShowContactModal] = useState(false) // Mostrar modal de contacto
   const [ownUserRole, setOwnUserRole] = useState(null)
 
+  // 👇 useEffect para bloquear/desbloquear el scroll del body
+  useEffect(() => {
+    if (showContactModal) {
+      document.body.classList.add('overflow-hidden')
+      document.getElementById('help-button').style.visibility = 'hidden'
+    } else {
+      document.body.classList.remove('overflow-hidden')
+      document.getElementById('help-button').style.visibility = 'visible'
+    }
+  }, [showContactModal])
+
   // Se utilizará si hay que hacer el fetch de datos en el client side
   useEffect(() => {
     const ownUserRole = getRoleFromCookieClient()

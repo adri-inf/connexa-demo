@@ -39,6 +39,19 @@ export default function SearchPage () {
 
   const pageLimit = 6 // Número de elementos por página
 
+  // 👇 useEffect para bloquear/desbloquear el scroll del body
+  useEffect(() => {
+    const helpButton = document.getElementById('help-button')
+
+    if (showContactModal) {
+      document.body.classList.add('overflow-hidden')
+      if (helpButton) helpButton.style.visibility = 'hidden'
+    } else {
+      document.body.classList.remove('overflow-hidden')
+      if (helpButton) helpButton.style.visibility = 'visible'
+    }
+  }, [showContactModal])
+
   // useEffect para ejecutar la búsqueda cada vez que cambian los parámetros de la URL (page o fullName)
   useEffect(() => {
     const fetchUsers = async () => {

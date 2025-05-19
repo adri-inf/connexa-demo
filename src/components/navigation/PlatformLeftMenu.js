@@ -5,14 +5,15 @@
 import Link from 'next/link'
 import { IconChats, IconSearchHelpers, IconProfile, IconRequests, IconLogout } from '../icons/platformLeftMenu'
 import { usePathname, useRouter } from 'next/navigation'
-import { InitFlowbite } from '../InitFlowbite'
 import { useEffect, useState } from 'react'
 import { getRoleFromCookieClient, logoutClick } from '@/utils/sessionClient'
+import { useCommonPlatform } from '@/context/commonPlatform'
 
 export default function PlatformLeftMenu () {
   const pathname = usePathname() // Si el pathname acaba el helper o regular, no se tiene en cuenta
   const [role, setRole] = useState('')
   const router = useRouter()
+  const { setOpenSidebar, openSidebar } = useCommonPlatform()
 
   // Obtener role de cookies
   useEffect(() => {
@@ -30,9 +31,12 @@ export default function PlatformLeftMenu () {
 
   return (
     <>
-      <InitFlowbite />
-
-      <aside id='logo-sidebar' className='lg:translate-x-0 fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 dark:bg-gray-900 dark:border-gray-700' aria-label='Sidebar'>
+      <aside
+        id='logo-sidebar'
+        className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform bg-white border-r border-gray-200 dark:bg-gray-900 dark:border-gray-700
+        ${openSidebar ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}
+        aria-label='Sidebar'
+      >
         <div className='h-full flex flex-col justify-between px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-900'>
           {role && (
             <>
@@ -62,7 +66,7 @@ export default function PlatformLeftMenu () {
               <ul>
                 <li>
                   <button
-                    onClick={() => logoutClick(router)}
+                    onClick={() => { logoutClick(router); setOpenSidebar(false) }}
                     className='relative w-full flex items-center p-2 text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-gray-700'
                   >
                     <IconLogout />
@@ -75,6 +79,12 @@ export default function PlatformLeftMenu () {
 
         </div>
       </aside>
+
+      <div
+        className={`bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-30 ${openSidebar ? 'visible' : 'hidden'}`}
+        onClick={() => setOpenSidebar(false)}
+      />
+
     </>
   )
 }

@@ -51,6 +51,34 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
     }
   }, [])
 
+  // 👇 useEffect para bloquear/desbloquear el scroll del body
+  useEffect(() => {
+    const anyModalOpen =
+      showEditCredentialsModal ||
+      showEditPersonalInfoModal ||
+      showEditProfileModal ||
+      showEditLocationModal ||
+      showEditScheduleModal ||
+      showEditHelperPreferencesModal ||
+      showEditTasksModal
+
+    if (anyModalOpen) {
+      document.body.classList.add('overflow-hidden')
+      document.getElementById('help-button').style.visibility = 'hidden'
+    } else {
+      document.body.classList.remove('overflow-hidden')
+      document.getElementById('help-button').style.visibility = 'visible'
+    }
+  }, [
+    showEditCredentialsModal,
+    showEditPersonalInfoModal,
+    showEditProfileModal,
+    showEditLocationModal,
+    showEditScheduleModal,
+    showEditHelperPreferencesModal,
+    showEditTasksModal
+  ])
+
   // Se utilizará si hay que hacer el fetch de datos en el client side
   useEffect(() => {
     if (!fetchData) { return } // Si no hay que hacer fetch de data, retornamos
