@@ -20,23 +20,10 @@ export const handleLogIn = (profilePicture, role) => {
 
 // Función para obtener el valor de 'role' desde las cookies en el cliente
 export const getRoleFromCookieClient = () => {
-  const getCookie = (name) => {
-    const value = `; ${document.cookie}`
-    const parts = value.split(`; ${name}=`)
-    if (parts.length === 2) return parts.pop().split(';').shift()
-    return null
-  }
+  if (typeof window === 'undefined') return null // Solo ejecuta en cliente
 
-  const userInfoToken = getCookie('userInfoToken')
-  if (userInfoToken) {
-    try {
-      const parsedData = JSON.parse(decodeURIComponent(userInfoToken))
-      return parsedData.role
-    } catch (error) {
-      return null
-    }
-  }
-  return null
+  const role = localStorage.getItem('role')
+  return role || null
 }
 
 // Función para obtener el valor de 'id' desde las cookies en el cliente
