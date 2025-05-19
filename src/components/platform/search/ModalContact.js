@@ -151,7 +151,7 @@ export default function ModalContact ({ setShowContactModal, userId, firstName, 
           className='lg:ml-64 relative w-full max-w-lg max-h-screen'
           onClick={(e) => e.stopPropagation()}
         >
-          <div className='m-4 p-6 flex flex-col justify-center bg-white rounded-lg shadow dark:bg-gray-800 dark:border border-gray-700 text-black dark:text-white relative'>
+          <div className='max-h-[85vh] m-4 p-6 flex flex-col justify-center bg-white rounded-lg shadow dark:bg-gray-800 dark:border border-gray-700 text-black dark:text-white relative'>
 
             {/* Botón para cerrar */}
             <div className='flex justify-end'>
