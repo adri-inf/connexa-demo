@@ -34,6 +34,7 @@ export default function PlatformLeftMenu () {
 
       <aside id='logo-sidebar' className='lg:translate-x-0 fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 dark:bg-gray-900 dark:border-gray-700' aria-label='Sidebar'>
         <div className='h-full flex flex-col justify-between px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-900'>
+          El role es {role}
           {role && (
             <>
               <ul className='space-y-2 font-medium'>
