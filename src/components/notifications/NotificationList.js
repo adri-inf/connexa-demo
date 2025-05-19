@@ -20,7 +20,7 @@ const styles = {
 
 const NotificationList = ({ notifications }) => {
   return (
-    <div className='fixed top-[70px] right-4 z-50 space-y-2 w-80'>
+    <div className='fixed top-3 right-4 z-50 space-y-2 w-80'>
       {notifications.map((n) => {
         const style = styles[n.type] || styles.info
         return (

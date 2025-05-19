@@ -32,7 +32,7 @@ export default function ModalHelp ({ setShowHelpModal, Part }) {
   return (
     <>
       <div
-        className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center  max-h-full inset-0 overflow-y-auto'
+        className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center  max-h-[90vh] inset-0 overflow-y-auto'
         onClick={() => setShowHelpModal(false)}
       >
         <DefaultBackground />
