@@ -51,8 +51,6 @@ export default function RequestsContent () {
         // Hacer fetch a la API para obtener los resultados de búsqueda con los parámetros de la URL.
         const responseRequests = await requestService.getAllUserRequests(userId, null, page, pageLimit, fullName)
 
-        console.log('Las requests son: ', responseRequests.data.requests)
-
         setRequests(responseRequests.data.requests)
 
         setTotalPages(responseRequests.data.totalPages) // Actualiza el total de páginas
@@ -61,7 +59,6 @@ export default function RequestsContent () {
         clearTimeout(loadingTimeout)
         setLoading(false)
       } catch (error) {
-        console.error('Error fetching requests:', error)
         clearTimeout(loadingTimeout) // Resetea el timeout en caso de error
         setLoading(false)
       }

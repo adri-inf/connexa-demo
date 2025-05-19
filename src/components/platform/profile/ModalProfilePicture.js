@@ -33,7 +33,6 @@ export default function ModalProfilePicture ({ setShowProfilePictureModal, actua
       const userId = getIdFromCookieClient()
       const result = await userService.sendProfilePicture(userId, file)
       if (result.success) {
-        console.log('Respuesta del servidor:', result)
         // Agregamos foto al localstorage
         localStorage.setItem('profilePicturePath', result.profilePicturePath)
         window.location.reload()
@@ -41,7 +40,6 @@ export default function ModalProfilePicture ({ setShowProfilePictureModal, actua
         notify('Ha ocurrido un fallo en el servidor.', 'error')
       }
     } catch (error) {
-      console.error(`Error: ${error.message}`)
       // Si hay algún fallo en la request, se muestra un error
       notify('Ha ocurrido un fallo en el servidor.', 'error')
     }
@@ -52,7 +50,6 @@ export default function ModalProfilePicture ({ setShowProfilePictureModal, actua
     event.preventDefault() // Evita el comportamiento predeterminado del formulario
     // Obtiene el archivo recortado desde el componente CropImage
     const croppedImageFile = await cropImageRef.current?.getCroppedFile()
-    console.log(croppedImageFile) // Imprime el archivo recortado en consola
     setValue('profilePicture', croppedImageFile) // Actualiza el valor del formulario
 
     // Llama al manejador original de envío de react-hook-form

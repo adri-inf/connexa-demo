@@ -37,12 +37,10 @@ export default function ModalEditProfile ({ setShowEditProfileModal, Icon, form,
 
     // Si no se modificó ningún campo, puedes manejarlo de forma específica
     if (Object.keys(modifiedFields).length === 0) {
-      console.log('No se han realizado cambios.')
       notify('No se ha modificado nada.', 'info')
       setShowEditProfileModal(false)
     } else {
       // Aquí puedes realizar la petición al servidor con los campos modificados
-      console.log('Campos modificados:', modifiedFields)
       if (modifiedFields.gender) {
         modifiedFields.helperInfo = {} // Inicializamos helperInfo
         modifiedFields.helperInfo.gender = modifiedFields.gender
@@ -50,11 +48,9 @@ export default function ModalEditProfile ({ setShowEditProfileModal, Icon, form,
       }
       // Enviamos datos al backend
       try {
-        const result = await formService.sendUpdatedForm(userId, modifiedFields)
-        console.log('Respuesta del servidor:', result)
+        await formService.sendUpdatedForm(userId, modifiedFields)
         window.location.reload()
       } catch (error) {
-        // console.error(`Error: ${error.message}`)
         // Si hay algún fallo en la request, se muestra un error
         notify('Ha ocurrido un fallo en el servidor.', 'error')
       }

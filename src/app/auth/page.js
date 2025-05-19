@@ -33,18 +33,14 @@ export default function AuthPage () {
 
   // Lo que ocurre al finalizar login
   const endLogin = async (data) => {
-    console.log(data)
-
     // Enviamos datos al backend
     try {
       const result = await authService.sendLogin(data)
-      console.log('Respuesta del servidor:', result.data)
 
       if (result.success) {
         handleLogIn(result.data.profilePicture, result.data.role)
         router.push('/app')
       } else if (!result.success) {
-        console.log('Credenciales inválidas')
         notify('Credenciales inválidas', 'error')
       }
     } catch (error) {

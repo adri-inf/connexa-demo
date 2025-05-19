@@ -95,7 +95,6 @@ export default function FormHelperPage () {
       (loc) => loc.Municipio === locationValue
     )
     setSelectedLocation(foundLocation)
-    console.log(foundLocation)
   }, [locationValue])
 
   // Define los campos específicos que se validan por paso
@@ -154,18 +153,15 @@ export default function FormHelperPage () {
       formHelperInfo: { ratio, skills }
     }
 
-    console.log(formDataToSend) // Imprime los datos finales en consola
     // Enviamos datos al backend
     try {
       const result = await formService.sendForm(userId, formDataToSend)
       if (result.success) {
-        console.log('Respuesta del servidor:', result)
         router.push('/app')
       } else if (!result.success) {
         notify('Ha ocurrido un fallo en el servidor', 'error')
       }
     } catch (error) {
-      console.error(`Error: ${error.message}`)
       // Si hay algún fallo en la request, se muestra un error
       notify('Ha ocurrido un fallo en el servidor', 'error')
     }

@@ -19,18 +19,15 @@ export default function ButtonFavorite ({ helperId, isDefaultFavorite, iconClass
     const userId = getIdFromCookieClient() // Id del propio usuario
     try {
       setIsLoading(true)
-      let result
       if (isFavorite) {
-        result = await favoriteService.deleteFavorite(userId, helperId)
+        await favoriteService.deleteFavorite(userId, helperId)
         setIsFavorite(false)
       } else {
-        result = await favoriteService.sendFavorite(userId, { favoriteUserId: helperId })
+        await favoriteService.sendFavorite(userId, { favoriteUserId: helperId })
         setIsFavorite(true)
       }
-      console.log('Respuesta del servidor:', result)
       setIsLoading(false)
     } catch (error) {
-      console.error(`Error: ${error.message}`)
       setIsLoading(false)
       // Si hay algún fallo en la request, se muestra un error
       notify('Ha ocurrido un fallo en el servidor', 'error')

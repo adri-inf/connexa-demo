@@ -46,11 +46,9 @@ export default function ModalEditHelperPreferences ({ setShowEditHelperPreferenc
 
     // Si no se modificó ningún campo, puedes manejarlo de forma específica
     if (Object.keys(modifiedFields).length === 0) {
-      console.log('No se han realizado cambios.')
       notify('No se ha modificado nada.', 'info')
       setShowEditHelperPreferencesModal(false)
     } else {
-      console.log('Campos modificados:', modifiedFields)
       // Los metemos dentro de objeto formRegularInfo, ya que son camos exclusivos de este
       if (modifiedFields.agePreference) {
         modifiedFields.formRegularInfo = {} // Inicializamos helperInfo
@@ -64,8 +62,7 @@ export default function ModalEditHelperPreferences ({ setShowEditHelperPreferenc
       }
       // Enviamos datos al backend
       try {
-        const result = await formService.sendUpdatedForm(userId, modifiedFields)
-        console.log('Respuesta del servidor:', result)
+        await formService.sendUpdatedForm(userId, modifiedFields)
         window.location.reload()
       } catch (error) {
         // console.error(`Error: ${error.message}`)

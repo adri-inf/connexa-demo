@@ -97,13 +97,9 @@ export default function RegisterPage ({ params }) {
     registerDataToSend = role === 'helper'
       ? { ...rest, helperInfo: { gender } }
       : { ...rest, regularInfo: {} }
-
-    console.log(registerDataToSend) // Muestra los datos en consola
-
     // Enviamos datos al backend
     try {
-      const result = await authService.sendRegister(registerDataToSend)
-      console.log('Respuesta del servidor:', result)
+      await authService.sendRegister(registerDataToSend)
       router.push('/auth/verify')
     } catch (error) {
       // console.error(`Error: ${error.message}`)

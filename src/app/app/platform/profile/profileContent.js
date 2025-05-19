@@ -47,7 +47,6 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
       const profilePicturePath = localStorage.getItem('profilePicturePath')
       if (profilePicturePath && profilePicturePath !== 'null') {
         setImageUrl(generateImgSrc(profilePicturePath))
-        console.log(generateImgSrc(profilePicturePath))
       }
     }
   }, [])
@@ -67,7 +66,6 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
 
         // Hacer fetch a la API para obtener los resultados de búsqueda con los parámetros de la URL.
         const user = await userService.getUser(false)
-        console.log('el user es', user)
         setUser(user.data)
         setForm(user.data.form)
         if (user.data.form) { setIncomplete(false) } else { setIncomplete(true) } // Manejamos estado incompleto
@@ -76,7 +74,6 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
         clearTimeout(loadingTimeout)
         setLoading(false)
       } catch (error) {
-        console.error('Error fetching user:', error)
         clearTimeout(loadingTimeout) // Resetea el timeout en caso de error
         setLoading(false)
       }

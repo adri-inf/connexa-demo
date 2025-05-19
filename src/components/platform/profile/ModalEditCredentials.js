@@ -48,12 +48,10 @@ export default function ModalEditCredentials ({ setShowEditCredentialsModal, use
 
     // Si no se modificó ningún campo, puedes manejarlo de forma específica
     if (Object.keys(modifiedFields).length === 0) {
-      console.log('No se han realizado cambios.')
       notify('No se ha modificado nada.', 'info')
       setShowEditCredentialsModal(false)
     } else {
       // Aquí puedes realizar la petición al servidor con los campos modificados
-      console.log('Campos modificados:', modifiedFields)
       // Enviamos datos al backend
       try {
         const response = await userService.sendUpdatedUserEmail(userId, modifiedFields)
@@ -77,12 +75,10 @@ export default function ModalEditCredentials ({ setShowEditCredentialsModal, use
 
     // Si no se modificó ningún campo, puedes manejarlo de forma específica
     if (Object.keys(modifiedFields).length === 0) {
-      console.log('No se han realizado cambios.')
       notify('No se ha modificado nada.', 'info')
       setShowEditCredentialsModal(false)
     } else {
       // Aquí puedes realizar la petición al servidor con los campos modificados
-      console.log('Campos modificados:', modifiedFields)
       // Enviamos datos al backend
       try {
         const response = await userService.sendUpdatedUserPassword(userId, modifiedFields)

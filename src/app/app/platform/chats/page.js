@@ -7,7 +7,7 @@ import ChatSkeleton from '@/components/platform/chat/ChatSkeleton'
 import ChatUsersList from '@/components/platform/chat/ChatUsersList'
 import { getIdFromCookieClient, getRoleFromCookieClient } from '@/utils/sessionClient'
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 export default function ChatsPage () {
   const searchParams = useSearchParams() // Hook para acceder a los parámetros de la URL
@@ -15,65 +15,67 @@ export default function ChatsPage () {
   // Extraer valores directamente de la URL. Id del usuario contrario.
   const [userId, setUserId] = useState(searchParams.get('userId') || '') // Nombre de búsqueda, por defecto es vacío
 
-  const chats = [
-    {
-      id: '9d5541db-e2ae-4725-b3d5-e9dc624e39ec',
-      regularUserId: '00161b06-cbd0-454a-8f9f-250ceef0cc9c',
-      helperUserId: 'bdcaf3e1-e8be-45d1-8220-5e3bc4515dd6',
-      createdAt: '2025-05-18T15:09:14.000Z',
-      updatedAt: '2025-05-18T17:09:18.000Z',
-      regularUser: {
-        firstName: 'Sofía',
-        lastName: 'Moreno',
-        profilePicture: 'uploads/profilePictures/22.webp',
-        id: '00161b06-cbd0-454a-8f9f-250ceef0cc9c'
+  const chats = useMemo(() => {
+    return [
+      {
+        id: '9d5541db-e2ae-4725-b3d5-e9dc624e39ec',
+        regularUserId: '00161b06-cbd0-454a-8f9f-250ceef0cc9c',
+        helperUserId: 'bdcaf3e1-e8be-45d1-8220-5e3bc4515dd6',
+        createdAt: '2025-05-18T15:09:14.000Z',
+        updatedAt: '2025-05-18T17:09:18.000Z',
+        regularUser: {
+          firstName: 'Sofía',
+          lastName: 'Moreno',
+          profilePicture: 'uploads/profilePictures/22.webp',
+          id: '00161b06-cbd0-454a-8f9f-250ceef0cc9c'
+        },
+        helperUser: {
+          firstName: 'Pedro',
+          lastName: 'García',
+          profilePicture: '3.webp',
+          id: 'bdcaf3e1-e8be-45d1-8220-5e3bc4515dd6'
+        },
+        lastMessage: {
+          content: 'Me cuesta organizarme.'
+        },
+        unreadMessages: 0
       },
-      helperUser: {
-        firstName: 'Pedro',
-        lastName: 'García',
-        profilePicture: '3.webp',
-        id: 'bdcaf3e1-e8be-45d1-8220-5e3bc4515dd6'
-      },
-      lastMessage: {
-        content: 'Me cuesta organizarme.'
-      },
-      unreadMessages: 0
-    },
-    {
-      id: '9f131d0f-dbf7-46b4-b0d0-ec14d3a93d1d',
-      regularUserId: '00161b06-cbd0-454a-8f9f-250ceef0cc9c',
-      helperUserId: '0014bbde-3ff6-4123-97bc-d83ab9c3f493',
-      createdAt: '2025-05-15T10:33:22.000Z',
-      updatedAt: '2025-05-18T17:09:04.000Z',
-      regularUser: {
-        firstName: 'Sofía',
-        lastName: 'Moreno',
-        profilePicture: 'uploads/profilePictures/22.webp',
-        id: '00161b06-cbd0-454a-8f9f-250ceef0cc9c'
-      },
-      helperUser: {
-        firstName: 'Laura',
-        lastName: 'Martínez',
-        profilePicture: '6.webp',
-        id: '0014bbde-3ff6-4123-97bc-d83ab9c3f493'
-      },
-      lastMessage: {
-        content: 'Hola'
-      },
-      unreadMessages: 1,
-      messages: [
-        {
-          id: '7207abb5-5c0e-4e6b-8866-cfb46accaaf7',
-          chatId: '9f131d0f-dbf7-46b4-b0d0-ec14d3a93d1d',
-          senderId: '0329c225-bfc5-4b9b-8e06-517c330fc41a',
-          content: 'Hola',
-          readAt: null,
-          createdAt: '2025-05-18T15:09:04.000Z',
-          updatedAt: '2025-05-18T15:09:04.000Z'
-        }
-      ]
-    }
-  ]
+      {
+        id: '9f131d0f-dbf7-46b4-b0d0-ec14d3a93d1d',
+        regularUserId: '00161b06-cbd0-454a-8f9f-250ceef0cc9c',
+        helperUserId: '0014bbde-3ff6-4123-97bc-d83ab9c3f493',
+        createdAt: '2025-05-15T10:33:22.000Z',
+        updatedAt: '2025-05-18T17:09:04.000Z',
+        regularUser: {
+          firstName: 'Sofía',
+          lastName: 'Moreno',
+          profilePicture: 'uploads/profilePictures/22.webp',
+          id: '00161b06-cbd0-454a-8f9f-250ceef0cc9c'
+        },
+        helperUser: {
+          firstName: 'Laura',
+          lastName: 'Martínez',
+          profilePicture: '6.webp',
+          id: '0014bbde-3ff6-4123-97bc-d83ab9c3f493'
+        },
+        lastMessage: {
+          content: 'Hola'
+        },
+        unreadMessages: 1,
+        messages: [
+          {
+            id: '7207abb5-5c0e-4e6b-8866-cfb46accaaf7',
+            chatId: '9f131d0f-dbf7-46b4-b0d0-ec14d3a93d1d',
+            senderId: '0329c225-bfc5-4b9b-8e06-517c330fc41a',
+            content: 'Hola',
+            readAt: null,
+            createdAt: '2025-05-18T15:09:04.000Z',
+            updatedAt: '2025-05-18T15:09:04.000Z'
+          }
+        ]
+      }
+    ]
+  }, [])
 
   const [loading, setLoading] = useState(true) // Estado de carga
 
@@ -124,7 +126,7 @@ export default function ChatsPage () {
       setActualChat([])
       setActualUser([])
     }
-  }, [role, userId, searchParams])
+  }, [role, userId, searchParams, chats])
 
   return (
     <>

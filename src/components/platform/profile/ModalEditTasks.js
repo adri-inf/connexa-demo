@@ -51,7 +51,6 @@ export default function ModalEditTasks ({ setShowEditTasksModal, Icon, form, use
 
     // Si no se modificó ningún campo, puedes manejarlo de forma específica
     if (Object.keys(modifiedFields).length === 0) {
-      console.log('No se han realizado cambios.')
       notify('No se ha modificado nada.', 'info')
       setShowEditTasksModal(false)
     } else {
@@ -60,11 +59,9 @@ export default function ModalEditTasks ({ setShowEditTasksModal, Icon, form, use
         modifiedFields = { ...modifiedFields, vehicle: form.vehicle }
       }
 
-      console.log('Campos modificados:', modifiedFields)
       // Enviamos datos al backend
       try {
-        const result = await formService.sendUpdatedForm(userId, modifiedFields)
-        console.log('Respuesta del servidor:', result)
+        await formService.sendUpdatedForm(userId, modifiedFields)
         window.location.reload()
       } catch (error) {
         // Si hay algún fallo en la request, se muestra un error

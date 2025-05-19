@@ -52,7 +52,6 @@ export default function SearchPage () {
 
         // Hacer fetch a la API para obtener los resultados de búsqueda con los parámetros de la URL
         const responseHelpers = await searchService.searchHelpers(page, pageLimit, favorites, fullName, null, true)
-        console.log(responseHelpers)
 
         if (responseHelpers.success !== false && responseHelpers.message !== 'Usuario no tiene form, necesario para buscar asistentes') {
           setHelpers(responseHelpers.data.users) // Actualiza el estado de los resultados
@@ -65,7 +64,6 @@ export default function SearchPage () {
         clearTimeout(loadingTimeout)
         setLoading(false)
       } catch (error) {
-        console.error('Error fetching helpers:', error)
         clearTimeout(loadingTimeout) // Resetea el timeout en caso de error
       }
     }

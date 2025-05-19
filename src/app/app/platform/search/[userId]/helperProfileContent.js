@@ -28,7 +28,6 @@ export default function ProfileContent ({ userId, userData, formData, fetchData 
     setOwnUserRole(ownUserRole)
     // Si no hay que hacer fetch de data, retornamos
     if (!fetchData) {
-      console.log('El user es: ', userData)
       return
     }
 
@@ -43,7 +42,6 @@ export default function ProfileContent ({ userId, userData, formData, fetchData 
 
         // Hacer fetch a la API para obtener los resultados de búsqueda con los parámetros de la URL.
         const user = await userService.getUser(true)
-        console.log('el user es', user)
         setUser(user.data)
         setForm(user.data.form)
 
@@ -51,7 +49,6 @@ export default function ProfileContent ({ userId, userData, formData, fetchData 
         clearTimeout(loadingTimeout)
         setLoading(false)
       } catch (error) {
-        console.error('Error fetching user:', error)
         clearTimeout(loadingTimeout) // Resetea el timeout en caso de error
         setLoading(false)
       }

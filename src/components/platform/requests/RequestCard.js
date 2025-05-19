@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation'
 
 export default function RequestCard ({ id, firstName, lastName, profilePicture, email, phone, requestDate, type, readAt }) {
   const router = useRouter()
-  console.log(readAt)
 
   return (
     <div className='flex items-center xm:items-stretch flex-col w-full relative'>

@@ -33,7 +33,6 @@ export default function VerifyPage () {
     try {
       const result = await authService.sendVerify(data)
       if (result.success) {
-        console.log('Respuesta del servidor:', result)
         localStorage.setItem('role', result.user.role)
         router.push('/app/form-init/profile-picture')
       } else if (!result.success) {

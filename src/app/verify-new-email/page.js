@@ -31,7 +31,6 @@ export default function VerifyNewEmailPage () {
         clearTimeout(loadingTimeout)
         setLoading(false)
       } catch (error) {
-        console.error('Error verifying email:', error)
         clearTimeout(loadingTimeout) // Resetea el timeout en caso de error
         setLoading(false)
       }

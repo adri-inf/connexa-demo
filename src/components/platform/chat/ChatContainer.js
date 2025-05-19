@@ -40,7 +40,6 @@ export default function ChatContainer ({ isUserSelected, actualChat, actualUser,
           actualChat.messages = data.messages // Actualizar los mensajes del chat actual
           setLoading(false)
         } catch (error) {
-          console.error('Error fetching messages:', error)
           setLoading(false)
         }
         // Si los mensajes del chat ya se han cargado antes, porque el chat ha sido seleccionado

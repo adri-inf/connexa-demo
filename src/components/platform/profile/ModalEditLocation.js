@@ -71,7 +71,6 @@ export default function ModalEditLocation ({ setShowEditLocationModal, Icon, for
       (loc) => loc.Municipio === locationValue
     )
     setSelectedLocation(foundLocation)
-    console.log(foundLocation)
   }, [locationValue])
 
   // Solo se envían los datos que han sido modificados
@@ -94,19 +93,14 @@ export default function ModalEditLocation ({ setShowEditLocationModal, Icon, for
       modifiedFields.location = locationValue // Asignamos el nuevo valor de location
     }
 
-    console.log('Los campos modificados son', modifiedFields) // Verifica el resultado
-
     // Si no se modificó ningún campo, puedes manejarlo de forma específica
     if (Object.keys(modifiedFields).length === 0) {
-      console.log('No se han realizado cambios.')
       notify('No se ha modificado nada.', 'info')
       setShowEditLocationModal(false)
     } else {
-      console.log('Campos modificados:', modifiedFields)
       // Enviamos datos al backend
       try {
-        const result = await formService.sendUpdatedForm(userId, modifiedFields)
-        console.log('Respuesta del servidor:', result)
+        await formService.sendUpdatedForm(userId, modifiedFields)
         window.location.reload()
       } catch (error) {
         // console.error(`Error: ${error.message}`)

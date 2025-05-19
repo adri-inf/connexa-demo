@@ -39,12 +39,10 @@ export default function ModalEditPersonalInfo ({ setShowEditPersonalInfoModal, u
 
     // Si no se modificó ningún campo, puedes manejarlo de forma específica
     if (Object.keys(modifiedFields).length === 0) {
-      console.log('No se han realizado cambios.')
       notify('No se ha modificado nada.', 'info')
       setShowEditPersonalInfoModal(false)
     } else {
       // Aquí puedes realizar la petición al servidor con los campos modificados
-      console.log('Campos modificados:', modifiedFields)
       if (modifiedFields.gender) {
         modifiedFields.helperInfo = {} // Inicializamos helperInfo
         modifiedFields.helperInfo.gender = modifiedFields.gender
@@ -52,8 +50,7 @@ export default function ModalEditPersonalInfo ({ setShowEditPersonalInfoModal, u
       }
       // Enviamos datos al backend
       try {
-        const result = await userService.sendUpdatedUser(userId, modifiedFields)
-        console.log('Respuesta del servidor:', result)
+        await userService.sendUpdatedUser(userId, modifiedFields)
         window.location.reload()
       } catch (error) {
         // console.error(`Error: ${error.message}`)

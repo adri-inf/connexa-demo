@@ -7,7 +7,7 @@ import { HelpButton } from '@/components/help/HelpButton.js'
 import PlatformLeftMenu from '@/components/navigation/PlatformLeftMenu'
 import PlatformTopNav from '@/components/navigation/PlatformTopNav'
 import { getRoleFromCookieClient } from '@/utils/sessionClient'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 
 export default function PlatformLayout ({ children }) {
   const [role, setRole] = useState('')
@@ -29,9 +29,11 @@ export default function PlatformLayout ({ children }) {
 
         {/* Contenido */}
         {/* El overflow hidden es importante (para text-nowrap, por ejemplo) */}
-        <div className='flex-1 sm:p-4 mt-16 lg:ml-64 overflow-hidden'>
-          {children}
-        </div>
+        <Suspense>
+          <div className='flex-1 sm:p-4 mt-16 lg:ml-64 overflow-hidden'>
+            {children}
+          </div>
+        </Suspense>
 
         {role === 'regular' && (
           <HelpButton />

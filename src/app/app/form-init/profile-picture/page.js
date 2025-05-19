@@ -51,13 +51,11 @@ export default function FormProfilePicturePage ({ params }) {
       const userId = getIdFromCookieClient()
       const result = await userService.sendProfilePicture(userId, file)
       if (result.success) {
-        console.log('Respuesta del servidor:', result)
         router.push('/app/form-init')
       } else if (!result.success) {
         notify('Ha ocurrido un fallo en el servidor', 'error')
       }
     } catch (error) {
-      console.error(`Error: ${error.message}`)
       // Si hay algún fallo en la request, se muestra un error
       notify('Ha ocurrido un fallo en el servidor', 'error')
     }
@@ -69,7 +67,6 @@ export default function FormProfilePicturePage ({ params }) {
 
     // Obtiene el archivo recortado desde el componente CropImage
     const croppedImageFile = await cropImageRef.current?.getCroppedFile()
-    console.log(croppedImageFile) // Imprime el archivo recortado en consola
     setValue('profilePicture', croppedImageFile) // Actualiza el valor del formulario
 
     // Llama al manejador original de envío de react-hook-form

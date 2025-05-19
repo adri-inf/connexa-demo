@@ -11,7 +11,6 @@ export const getRoleFromCookieServer = async () => {
       const parsedData = JSON.parse(decodeURIComponent(userInfoToken))
       return parsedData.role
     } catch (error) {
-      console.error('Error al parsear la cookie userInfoToken en el servidor:', error)
       return null
     }
   }
@@ -29,7 +28,6 @@ export const getIdFromCookieServer = async () => {
       const parsedData = JSON.parse(decodeURIComponent(userInfoToken))
       return parsedData.id
     } catch (error) {
-      console.error('Error al parsear la cookie userInfoToken en el servidor:', error)
       return null
     }
   }

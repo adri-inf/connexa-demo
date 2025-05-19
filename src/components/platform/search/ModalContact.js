@@ -63,7 +63,6 @@ export default function ModalContact ({ setShowContactModal, userId, firstName, 
       setActualOption('chat')
       setIsLoading(false)
     } catch (error) {
-      console.error(`Error: ${error.message}`)
       notify('Ha ocurrido un fallo en el servidor', 'error')
       setIsLoading(false)
     }
@@ -90,7 +89,6 @@ export default function ModalContact ({ setShowContactModal, userId, firstName, 
         clearTimeout(loadingTimeout)
         setIsLoading(false)
       } catch (error) {
-        console.error('Error fetching user:', error)
         clearTimeout(loadingTimeout) // Resetea el timeout en caso de error
         setIsLoading(false)
       }

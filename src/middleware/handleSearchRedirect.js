@@ -25,7 +25,6 @@ export default function handleSearchRedirect (req) {
         return NextResponse.redirect(redirectUrl)
       }
     } catch (error) {
-      console.error('Error al decodificar el JWT:', error)
     }
   }
 

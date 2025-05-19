@@ -33,7 +33,6 @@ export const getRoleFromCookieClient = () => {
       const parsedData = JSON.parse(decodeURIComponent(userInfoToken))
       return parsedData.role
     } catch (error) {
-      console.error('Error al parsear la cookie userInfoToken:', error)
       return null
     }
   }
@@ -55,7 +54,6 @@ export const getIdFromCookieClient = () => {
       const parsedData = JSON.parse(decodeURIComponent(userInfoToken))
       return parsedData.id
     } catch (error) {
-      console.error('Error al parsear la cookie userInfoToken:', error)
       return null
     }
   }
@@ -70,8 +68,6 @@ export const logoutClick = async (router) => {
     handleLogOut()
     router.push('/auth')
   } catch (error) {
-    // console.error(`Error: ${error.message}`)
-    // Si falla, se intenta ir a auth
     router.push('/auth')
   }
 }

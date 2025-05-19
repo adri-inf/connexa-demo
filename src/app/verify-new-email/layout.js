@@ -5,6 +5,7 @@
 import TopNav from '../../components/navigation/TopNav.js'
 import Footer from '@/components/Footer.js'
 import { DefaultBackground } from '@/components/backgrounds/DefaultBackground.js'
+import { Suspense } from 'react'
 
 export default async function VerifyNewEmailLayout ({ children }) {
   return (
@@ -17,7 +18,9 @@ export default async function VerifyNewEmailLayout ({ children }) {
         {/* Fondo */}
         <DefaultBackground />
         {/* Contenido */}
-        {children}
+        <Suspense>
+          {children}
+        </Suspense>
       </main>
       <Footer />
 
