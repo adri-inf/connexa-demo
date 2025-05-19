@@ -67,7 +67,7 @@ export default function ModalProfilePicture ({ setShowProfilePictureModal, actua
         onClick={(e) => e.stopPropagation()} // Para evitar propagaacion de cerrar modal
       >
         <div
-          className='max-h-[85vh] dark:border border-gray-700 m-2 lg:m-4 p-4 lg:p-8 flex flex-col justify-center shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative'
+          className='max-h-[85vh] overflow-auto dark:border border-gray-700 m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative'
         >
           {/* Botón para cerrar */}
           <div className='flex justify-end'>

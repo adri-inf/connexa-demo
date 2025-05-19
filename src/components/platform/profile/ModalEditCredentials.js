@@ -142,7 +142,7 @@ export default function ModalEditCredentials ({ setShowEditCredentialsModal, use
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className='max-h-[85vh] m-2 lg:m-4 min-h-[390px] p-4 lg:p-8 flex flex-col justify-start shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
+          className='max-h-[85vh] overflow-auto  m-2 lg:m-4 min-h-[390px] p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
         >
           {/* Botón para cerrar */}
           <div className={`flex ${index > 0 ? 'justify-between' : 'justify-end'}`}>
