@@ -16,6 +16,7 @@ import ProfileSkeleton from '@/components/platform/profile/ProfileSkeleton'
 import { generateImgSrc } from '@/utils/profilePictures'
 import ModalEditLocation from '@/components/platform/profile/ModalEditLocation'
 import ModalEditCredentials from '@/components/platform/profile/ModalEditCredentials'
+import ModalProfilePicture from '@/components/platform/profile/ModalProfilePicture'
 
 // fetchData es una variable boolean que nos indicará si debemos hacer el fetching de datos o no, según si ha habido un error
 // al hacerlo en el server side. Esto es porque desde el server side no podemos actualizar el accessToken en caso de 401.
@@ -35,6 +36,7 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
   const [showEditScheduleModal, setShowEditScheduleModal] = useState(false)
   const [showEditHelperPreferencesModal, setShowEditHelperPreferencesModal] = useState(false)
   const [showEditTasksModal, setShowEditTasksModal] = useState(false)
+  const [showProfilePictureModal, setShowProfilePictureModal] = useState(false)
 
   // Obtenemos la imagen del localStorage (Se crea al cambiar foto de perfil y al iniciar sesión)
   // Null hay que tratarlo como cadena, porque está en localStorage
@@ -60,7 +62,8 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
       showEditLocationModal ||
       showEditScheduleModal ||
       showEditHelperPreferencesModal ||
-      showEditTasksModal
+      showEditTasksModal ||
+      showProfilePictureModal
 
     if (anyModalOpen) {
       document.body.classList.add('overflow-hidden')
@@ -76,7 +79,8 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
     showEditLocationModal,
     showEditScheduleModal,
     showEditHelperPreferencesModal,
-    showEditTasksModal
+    showEditTasksModal,
+    showProfilePictureModal
   ])
 
   // Se utilizará si hay que hacer el fetch de datos en el client side
@@ -118,10 +122,11 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
       {!loading && (
         <>
           {/* Nombre e imagen */}
-          <ProfilePartImage own user={user} incomplete={incomplete} imgSrc={imageUrl} />
-
+          <ProfilePartImage own user={user} incomplete={incomplete} imgSrc={imageUrl} setShowProfilePictureModal={setShowProfilePictureModal} />
           <ProfilePartInfo userRole={role} title='Información personal' setShowEditModal={setShowEditPersonalInfoModal} setShowEditCredentialsModal={setShowEditCredentialsInfoModal} editable mailPassEdit options={userToInfo(user)} Icon={IconPersonalInfo} />
+          
           {/* Modales de edición */}
+          {showProfilePictureModal && ( <ModalProfilePicture actualImgSrc={imageUrl} setShowProfilePictureModal={setShowProfilePictureModal} />)}
           {showEditPersonalInfoModal && (<ModalEditPersonalInfo userId={userId} user={user} Icon={IconPersonalInfo} userRole={role} setShowEditPersonalInfoModal={setShowEditPersonalInfoModal} />)}
           {showEditCredentialsModal && (<ModalEditCredentials userId={userId} user={user} Icon={() => <IconMailPass size={6} />} setShowEditCredentialsModal={setShowEditCredentialsInfoModal} />)}
 

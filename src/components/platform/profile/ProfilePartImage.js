@@ -6,21 +6,12 @@
 import Link from 'next/link'
 import DangerAlert from '../../form/DangerAlert'
 import PartContainer from '../PartContainer'
-import { useState } from 'react'
-import ModalProfilePicture from './ModalProfilePicture'
 
 // Si own es true, es que se está visualizando el propio perfil. Si no, un regular está viendo el perfil de un helper
-export default function ProfilePartImage ({ user, imgSrc, incomplete }) {
-  const [showProfilePictureModal, setShowProfilePictureModal] = useState(false)
+export default function ProfilePartImage ({ user, imgSrc, incomplete, setShowProfilePictureModal }) {
 
   return (
     <PartContainer>
-
-      {/* Modal imagen */}
-      {showProfilePictureModal && (
-        <ModalProfilePicture actualImgSrc={imgSrc} setShowProfilePictureModal={setShowProfilePictureModal} />
-      )}
-
       {
         incomplete && (
           <Link href='/app/form-init' className='mb-2'>
