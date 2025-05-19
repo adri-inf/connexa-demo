@@ -32,13 +32,13 @@ export default function ModalHelp ({ setShowHelpModal, Part }) {
   return (
     <>
       <div
-        className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center  max-h-[90vh] inset-0 overflow-y-auto'
+        className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center  max-h-full inset-0 overflow-y-auto'
         onClick={() => setShowHelpModal(false)}
       >
         <DefaultBackground />
 
         <div
-          className='max-w-2xl flex flex-col h-[95vh] overflow-hidden shadow-lg relative w-full lg:m-4 p-4 lg:p-8 bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white border border-gray-100 dark:border-gray-700'
+          className='max-h-[85vh]  max-w-2xl flex flex-col h-[95vh] overflow-hidden shadow-lg relative w-full lg:m-4 p-4 lg:p-8 bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white border border-gray-100 dark:border-gray-700'
           onClick={(e) => e.stopPropagation()}
         >
           <div className='flex justify-between mb-4 items-center'>
