@@ -43,13 +43,15 @@ export default function HelperCard ({ favorite, userId, firstName, lastName, loc
           {locations}
         </span>
 
-        <div className='w-full justify-center items-end flex mt-4'>
-          <button
-            onClick={() => handleContactClick(userId, firstName)}
-            className='py-2 px-4 mt-2 text-sm sm:text-base font-medium focus:outline-none  rounded-lg border border-primary focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:border-primary-dark bg-primary text-white hover:bg-primary-hover dark:bg-primary-dark dark:text-black dark:hover:bg-primary-hover-dark'
-          >
-            Contactar
-          </button>
+        <div className='mt-auto'>
+          <div className='w-full justify-center items-end flex mt-4'>
+            <button
+              onClick={() => handleContactClick(userId, firstName)}
+              className='py-2 px-4 mt-2 text-sm sm:text-base font-medium focus:outline-none  rounded-lg border border-primary focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:border-primary-dark bg-primary text-white hover:bg-primary-hover dark:bg-primary-dark dark:text-black dark:hover:bg-primary-hover-dark'
+            >
+              Contactar
+            </button>
+          </div>
         </div>
 
       </div>
