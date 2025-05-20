@@ -9,7 +9,6 @@ import PartContainer from '../PartContainer'
 
 // Si own es true, es que se está visualizando el propio perfil. Si no, un regular está viendo el perfil de un helper
 export default function ProfilePartImage ({ user, imgSrc, incomplete, setShowProfilePictureModal }) {
-
   return (
     <PartContainer>
       {

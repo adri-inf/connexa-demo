@@ -124,9 +124,9 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
           {/* Nombre e imagen */}
           <ProfilePartImage own user={user} incomplete={incomplete} imgSrc={imageUrl} setShowProfilePictureModal={setShowProfilePictureModal} />
           <ProfilePartInfo userRole={role} title='Información personal' setShowEditModal={setShowEditPersonalInfoModal} setShowEditCredentialsModal={setShowEditCredentialsInfoModal} editable mailPassEdit options={userToInfo(user)} Icon={IconPersonalInfo} />
-          
+
           {/* Modales de edición */}
-          {showProfilePictureModal && ( <ModalProfilePicture actualImgSrc={imageUrl} setShowProfilePictureModal={setShowProfilePictureModal} />)}
+          {showProfilePictureModal && (<ModalProfilePicture actualImgSrc={imageUrl} setShowProfilePictureModal={setShowProfilePictureModal} />)}
           {showEditPersonalInfoModal && (<ModalEditPersonalInfo userId={userId} user={user} Icon={IconPersonalInfo} userRole={role} setShowEditPersonalInfoModal={setShowEditPersonalInfoModal} />)}
           {showEditCredentialsModal && (<ModalEditCredentials userId={userId} user={user} Icon={() => <IconMailPass size={6} />} setShowEditCredentialsModal={setShowEditCredentialsInfoModal} />)}
 
