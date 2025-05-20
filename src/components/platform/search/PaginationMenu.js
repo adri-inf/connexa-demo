@@ -15,7 +15,7 @@ export default function PaginationMenu ({ totalPages, actualPage, setPage }) {
   // Ajusta el valor de maxPages en función del tamaño de los botones de paginación.
   // El valor 80 es una estimación del ancho de cada botón de página en píxeles.
   // Si necesitas que los botones se oculten más rápido, aumenta este valor.
-    const maxPages = Math.floor(componentWidth / 100) // 80px por botón, ajusta según sea necesario.
+    const maxPages = Math.floor(componentWidth / 120) // 80px por botón, ajusta según sea necesario.
 
     // Aseguramos que siempre haya al menos 3 elementos visibles: el botón de "anterior", el de "siguiente" y la página actual.
     const minPages = 3
