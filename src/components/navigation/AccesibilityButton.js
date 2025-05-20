@@ -4,14 +4,12 @@ import { useState, useRef, useEffect } from 'react'
 import { ButtonThemeSwitcher } from '../themes/ButtonThemeSwitcher.js'
 import { PlusTextButton } from './PlusTextButton.js'
 import { MinusTextButton } from './MinusTextButton.js'
-import { useAccessibility } from '@/context/accesibility.js'
 import { usePathname } from 'next/navigation.js'
 import { GrayScaleButton } from './GrayScaleButton.js'
 
 export function AccesibilityButton () {
   const [showModal, setShowModal] = useState(false)
   const dropdownRef = useRef(null)
-  const { accessibilityLevel } = useAccessibility() // Obtiene el nivel de fuente (ejemplo: 1, 2, 3)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -51,7 +49,7 @@ export function AccesibilityButton () {
 
       {showModal && (
         <div
-          className={`border absolute ${(accessibilityLevel === 2 && pathname.includes('home')) ? 'left-0' : 'right-0'} z-50 w-48 text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600`}
+          className={`border absolute ${(pathname.includes('home')) ? 'left-0' : 'right-0'} z-50 w-48 text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600`}
           id='dropdown-user'
         >
           <ul className='py-1 space-y-2' role='none'>
