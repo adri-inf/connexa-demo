@@ -51,7 +51,7 @@ export function AccesibilityButton () {
 
       {showModal && (
         <div
-          className={`border absolute ${(accessibilityLevel === 3 && pathname.includes('home')) ? 'left-0' : 'right-0'} z-50 w-48 text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600`}
+          className={`border absolute ${(accessibilityLevel === 2 && pathname.includes('home')) ? 'left-0' : 'right-0'} z-50 w-48 text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600`}
           id='dropdown-user'
         >
           <ul className='py-1 space-y-2' role='none'>
