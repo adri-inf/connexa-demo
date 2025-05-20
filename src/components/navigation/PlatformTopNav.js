@@ -9,7 +9,6 @@ import { InitFlowbite } from '../InitFlowbite'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { logoutClick } from '@/utils/sessionClient'
-import { AccesibilityButton } from './AccesibilityButton.js'
 import { useCommonPlatform } from '@/context/commonPlatform'
 
 const logoConnexa = '/logo_connexa.webp'
@@ -51,13 +50,12 @@ export default function PlatformTopNav () {
               </button>
               <Link href='/' target='_blank' className='flex ms-2 md:me-24'>
                 <img src={logoConnexa} className='h-9 me-3' alt='Connexa Logo' />
-                <span className={`${nunito.className} self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white`}>CONNEXA</span>
+                <span className={`${nunito.className} hidden hide-logo:block self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white`}>CONNEXA</span>
               </Link>
             </div>
             <div className='flex items-center'>
               <div className='flex items-center ms-3'>
                 <div className='flex gap-x-4 items-center'>
-                  <AccesibilityButton />
                   <button type='button' className='flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600' aria-expanded='false' data-dropdown-toggle='dropdown-user'>
                     <span className='sr-only'>Open user menu</span>
                     <img className='w-9 h-9 rounded-full' src={imgSrc || '/userimg.webp'} alt='user photo' />

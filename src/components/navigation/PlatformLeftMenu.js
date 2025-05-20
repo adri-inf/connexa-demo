@@ -40,7 +40,7 @@ export default function PlatformLeftMenu () {
         <div className='h-full flex flex-col justify-between px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-900'>
           {role && (
             <>
-              <ul className='space-y-2 font-medium'>
+              <ul className='space-y-2 font-medium mt-6'>
 
                 {/* Pasamos icon a Icon porque los componentes deben empezar por mayúscula */}
                 {menuItems.map(({ href, label, Icon }, index) => (

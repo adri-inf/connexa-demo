@@ -10,7 +10,7 @@ export default function LogoHeader ({ isLink = true }) {
   return (
     <Wrapper
       {...(isLink ? { href: '/' } : {})}
-      className='flex items-center space-x-3 rtl:space-x-reverse mx-auto'
+      className='mb-3 flex items-center space-x-3 rtl:space-x-reverse mx-auto'
     >
       <img src='/logo_connexa.webp' className='h-9' alt='Connexa Logo' />
       <span className={`${nunito.className} text-3xl antialiased self-center font-semibold whitespace-nowrap dark:text-white`}>

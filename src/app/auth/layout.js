@@ -7,6 +7,7 @@
 
 import Footer from '@/components/Footer'
 import { DefaultBackground } from '@/components/backgrounds/DefaultBackground.js'
+import { AccesibilityButton } from '@/components/navigation/AccesibilityButton'
 
 export default function AuthLayout ({ children }) {
   return (
@@ -17,6 +18,9 @@ export default function AuthLayout ({ children }) {
         {/* {showChild && children} */}
         {children}
       </main>
+      <div className='fixed top-[65px] left-0 z-50'>
+        <AccesibilityButton />
+      </div>
       <Footer />
     </>
   )

@@ -6,7 +6,6 @@ import { nunito } from '@/app/fonts'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { InitFlowbite } from '../InitFlowbite'
-import { AccesibilityButton } from './AccesibilityButton.js'
 
 const logoConnexa = '/logo_connexa.webp'
 
@@ -24,9 +23,6 @@ export default function TopNav () {
           <span className={`${nunito.className} hidden hide-logo:block text-xl antialiased self-center font-semibold whitespace-nowrap dark:text-white`}>CONNEXA</span>
         </Link>
         <div className='flex hide-nav-elements:order-2 items-center space-x-2 hide-nav-elements:gap-x-4 hide-nav-elements:space-x-0 rtl:space-x-reverse'>
-          {/* Botón swap theme */}
-          <AccesibilityButton />
-
           {/* Boton acceder */}
           <Link href='/auth'>
             <button

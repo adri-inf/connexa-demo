@@ -4,13 +4,11 @@ import { useState, useRef, useEffect } from 'react'
 import { ButtonThemeSwitcher } from '../themes/ButtonThemeSwitcher.js'
 import { PlusTextButton } from './PlusTextButton.js'
 import { MinusTextButton } from './MinusTextButton.js'
-import { usePathname } from 'next/navigation.js'
 import { GrayScaleButton } from './GrayScaleButton.js'
 
 export function AccesibilityButton () {
   const [showModal, setShowModal] = useState(false)
   const dropdownRef = useRef(null)
-  const pathname = usePathname()
 
   useEffect(() => {
     function handleClickOutside (event) {
@@ -35,7 +33,7 @@ export function AccesibilityButton () {
       <button
         onClick={() => setShowModal(!showModal)}
         type='button'
-        className='text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-500 focus:outline-none rounded-lg text-sm p-1'
+        className='text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-500 focus:outline-none rounded-tr-lg rounded-br-lg text-sm p-1'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -49,7 +47,7 @@ export function AccesibilityButton () {
 
       {showModal && (
         <div
-          className={`border absolute ${(pathname.includes('home')) ? 'left-0' : 'right-0'} z-50 w-48 text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600`}
+          className='border absolute left-0 z-50 w-48 text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600'
           id='dropdown-user'
         >
           <ul className='py-1 space-y-2' role='none'>
