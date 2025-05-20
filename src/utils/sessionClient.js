@@ -28,23 +28,7 @@ export const getRoleFromCookieClient = () => {
 
 // Función para obtener el valor de 'id' desde las cookies en el cliente
 export const getIdFromCookieClient = () => {
-  const getCookie = (name) => {
-    const value = `; ${document.cookie}`
-    const parts = value.split(`; ${name}=`)
-    if (parts.length === 2) return parts.pop().split(';').shift()
-    return null
-  }
-
-  const userInfoToken = getCookie('userInfoToken')
-  if (userInfoToken) {
-    try {
-      const parsedData = JSON.parse(decodeURIComponent(userInfoToken))
-      return parsedData.id
-    } catch (error) {
-      return null
-    }
-  }
-  return null
+  return '00161b06-cbd0-454a-8f9f-250ceef0cc9c'
 }
 
 // Función usada cuando se pulsa botón logout

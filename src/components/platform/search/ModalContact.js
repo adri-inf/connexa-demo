@@ -36,6 +36,7 @@ export default function ModalContact ({ setShowContactModal, userId, firstName, 
       // Deshabilitamos opción phone, y calculamos días restantes de expiración de la solicitud
       if (actualOption === 'phone') {
         setPhoneActive(false)
+        result.data.expirationDate = '2025-05-20'
         setPhoneDaysRemaining(formatDateToDDMMYYYY(result.data.expirationDate))
 
         notify(`Solicitud de contacto enviada a ${firstName}.`, 'success')
@@ -43,6 +44,7 @@ export default function ModalContact ({ setShowContactModal, userId, firstName, 
 
       // Deshabilitamos opción email, y calculamos días restantes de expiración de la solicitud
       if (actualOption === 'email') {
+        result.data.expirationDate = '2025-05-20'
         setEmailDaysRemaining(formatDateToDDMMYYYY(result.data.expirationDate))
         setEmailActive(false)
         notify(`Solicitud de contacto enviada a ${firstName}.`, 'success')
@@ -52,8 +54,8 @@ export default function ModalContact ({ setShowContactModal, userId, firstName, 
       if (actualOption === 'chat') {
         // Si se ha creado un nuevo chat
         notify('Ya hay un chat iniciado con Pedro', 'info')
-
         router.push('/app/platform/chats?userId=bdcaf3e1-e8be-45d1-8220-5e3bc4515dd6')
+        setShowContactModal(false)
       }
 
       setActualOption('chat')

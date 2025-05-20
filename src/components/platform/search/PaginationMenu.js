@@ -90,7 +90,7 @@ export default function PaginationMenu ({ totalPages, actualPage, setPage }) {
   }
 
   return (
-    <div className='overflow-hidden mx-auto'>
+    <div className='overflow-hidden mx-auto mb-16 lg:mb-0'>
       <nav aria-label='Page navigation example' className='mx-auto'>
         <ul className='flex items-center -space-x-px h-10 text-base'>
           {/* Botón de "Previous" */}

@@ -116,7 +116,7 @@ export const chatService = {
             id: '4',
             chatId: '9f131d0f-dbf7-46b4-b0d0-ec14d3a93d1d',
             senderId: '00161b06-cbd0-454a-8f9f-250ceef0cc9c',
-            content: 'Me cuesta organizarme.',
+            content: 'Necesito ayuda para las tareas domésticas.',
             readAt: null,
             createdAt: '2025-05-18T15:09:15.000Z',
             updatedAt: '2025-05-18T15:09:15.000Z'
