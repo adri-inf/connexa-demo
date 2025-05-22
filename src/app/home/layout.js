@@ -20,9 +20,7 @@ export default async function HomeLayout ({ children }) {
         {/* Contenido */}
         {children}
       </main>
-      <div className='fixed top-[65px] left-0 z-50'>
-        <AccesibilityButton />
-      </div>
+      <AccesibilityButton />
       <Footer />
 
     </>

@@ -89,12 +89,12 @@ export default function ModalEditPersonalInfo ({ setShowEditPersonalInfoModal, u
           </div>
 
           {/* Contenido principal del modal */}
-          <div className='mb-6 flex justify-center gap-x-2 items-center text-xl text-primary dark:text-primary-dark font-semibold'>
+          <div className='mb-2 flex justify-center gap-x-2 items-center text-xl text-primary dark:text-primary-dark font-semibold'>
             <Icon />
-            <h2>Edita tu información personal</h2>
+            <h2 className='text-sm lg:text-base'>Edita tu información personal</h2>
           </div>
 
-          <form onSubmit={handleSubmit(endUptade)}>
+          <form className='pt-4 overflow-y-auto' onSubmit={handleSubmit(endUptade)}>
             <TextInput
               type='text'
               id='firstName'

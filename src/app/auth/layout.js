@@ -18,9 +18,7 @@ export default function AuthLayout ({ children }) {
         {/* {showChild && children} */}
         {children}
       </main>
-      <div className='fixed top-[65px] left-0 z-50'>
-        <AccesibilityButton />
-      </div>
+      <AccesibilityButton />
       <Footer />
     </>
   )

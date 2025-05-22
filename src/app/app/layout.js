@@ -5,9 +5,7 @@ export default function AppLayout ({ children }) {
     <>
       {/* {showChild && children} */}
       {children}
-      <div className='fixed top-[65px] left-0 z-50'>
-        <AccesibilityButton />
-      </div>
+      <AccesibilityButton />
     </>
   )
 }

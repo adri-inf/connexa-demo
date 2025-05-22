@@ -10,7 +10,7 @@ export default function HelpersGrid ({ handleContactClick, options }) {
       {/* Si se encontraron usuarios */}
       {options.length > 0
         ? (
-          <div className='grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4'>
+          <div class='grid grid-cols-1 [@media(min-width:420px)]:grid-cols-2 [@media(min-width:700px)]:grid-cols-3 gap-4'>
             {options.map((user) => (
               <HelperCard
                 handleContactClick={() => handleContactClick(user.id, user.firstName, user.total_compatibility_percentage)}

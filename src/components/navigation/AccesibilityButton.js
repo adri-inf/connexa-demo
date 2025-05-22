@@ -8,8 +8,50 @@ import { GrayScaleButton } from './GrayScaleButton.js'
 
 export function AccesibilityButton () {
   const [showModal, setShowModal] = useState(false)
+  const [topPosition, setTopPosition] = useState(100)
   const dropdownRef = useRef(null)
+  const isDragging = useRef(false)
+  const hasDragged = useRef(false)
+  const startY = useRef(0)
+  const offsetY = useRef(0)
+  const DRAG_THRESHOLD = 5 // px
 
+  useEffect(() => {
+    const savedTop = localStorage.getItem('accessibility-button-top')
+    const defaultTop = window.innerHeight * 0.25
+    setTopPosition(savedTop ? parseInt(savedTop, 10) : defaultTop)
+  }, [])
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!isDragging.current) return
+
+      const deltaY = e.clientY - startY.current
+      if (!hasDragged.current && Math.abs(deltaY) >= DRAG_THRESHOLD) {
+        hasDragged.current = true
+      }
+
+      if (hasDragged.current) {
+        const newY = e.clientY - offsetY.current
+        setTopPosition(newY)
+        localStorage.setItem('accessibility-button-top', newY)
+      }
+    }
+
+    const handleMouseUp = () => {
+      isDragging.current = false
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mouseup', handleMouseUp)
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mouseup', handleMouseUp)
+    }
+  }, [])
+
+  // Handle click outside to close modal
   useEffect(() => {
     function handleClickOutside (event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -18,22 +60,43 @@ export function AccesibilityButton () {
     }
 
     if (showModal) {
-      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('click', handleClickOutside)
     } else {
-      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('click', handleClickOutside)
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('click', handleClickOutside)
     }
   }, [showModal])
 
+  const handleMouseDown = (e) => {
+    isDragging.current = true
+    hasDragged.current = false
+    startY.current = e.clientY
+    offsetY.current = e.clientY - dropdownRef.current.getBoundingClientRect().top
+  }
+
+  const handleClick = (e) => {
+    if (hasDragged.current) {
+      e.preventDefault()
+      e.stopPropagation()
+      return
+    }
+    setShowModal(prev => !prev)
+  }
+
   return (
-    <div className='relative inline-block' ref={dropdownRef}>
+    <div
+      className='inline-block fixed left-0 z-50'
+      style={{ top: `${topPosition}px` }}
+      ref={dropdownRef}
+    >
       <button
-        onClick={() => setShowModal(!showModal)}
+        onMouseDown={handleMouseDown}
+        onClick={handleClick}
         type='button'
-        className='text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-500 focus:outline-none rounded-tr-lg rounded-br-lg text-sm p-1'
+        className='text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-500 focus:outline-none rounded-tr-lg rounded-br-lg text-sm p-1 cursor-move'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -51,18 +114,10 @@ export function AccesibilityButton () {
           id='dropdown-user'
         >
           <ul className='py-1 space-y-2' role='none'>
-            <li>
-              <ButtonThemeSwitcher />
-            </li>
-            <li>
-              <PlusTextButton />
-            </li>
-            <li>
-              <MinusTextButton />
-            </li>
-            <li>
-              <GrayScaleButton />
-            </li>
+            <li><ButtonThemeSwitcher /></li>
+            <li><PlusTextButton /></li>
+            <li><MinusTextButton /></li>
+            <li><GrayScaleButton /></li>
           </ul>
         </div>
       )}

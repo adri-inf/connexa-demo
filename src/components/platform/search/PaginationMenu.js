@@ -18,7 +18,7 @@ export default function PaginationMenu ({ totalPages, actualPage, setPage }) {
     const maxPages = Math.floor(componentWidth / 120) // 80px por botón, ajusta según sea necesario.
 
     // Aseguramos que siempre haya al menos 3 elementos visibles: el botón de "anterior", el de "siguiente" y la página actual.
-    const minPages = 3
+    const minPages = 2
 
     // Calcula el número de páginas visibles en función del ancho de la ventana.
     // Se limita entre el número máximo de páginas (maxPages) y el número total de páginas disponibles (totalPages).
