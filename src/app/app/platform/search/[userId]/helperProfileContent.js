@@ -102,7 +102,7 @@ export default function ProfileContent ({ userId, userData, formData, fetchData 
               <ProfilePartInfo ownRole={ownUserRole} compatibilityDaysPercentage={user?.compatibility_days_percentage} compatibilityTimePercentage={user?.compatibility_time_percentage} type='partSchedule' title='Horario' options={scheduleToInfo(form)} Icon={IconScheduleInfo} />
               {/* Tareas */}
               <ProfilePartInfo ownRole compatibilityTasksPercentage={user?.compatibility_tasks_percentage} compatibilityVehiclePercentage={user?.compatibility_vehicle_percentage} type='partTasks' title='Tareas y actividades' options={tasksToInfo(form)} Icon={IconTasks} />
-
+              <div className='mb-16 lg:mb-0' />
               {/* <ProfilePartInfo highlightFirst title='Información compatibilidad' editable options={formToInfo(form)} Icon={IconCompatibilityInfo} /> */}
             </>
           )}

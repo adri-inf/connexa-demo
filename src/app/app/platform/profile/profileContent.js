@@ -142,7 +142,7 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
               <ProfilePartInfo highlightFirst={Boolean(form.formRegularInfo)} title='Ubicación' setShowEditModal={setShowEditLocationModal} editable options={locationToInfo(form)} Icon={IconLocationInfo} />
               <ProfilePartInfo title='Horario' setShowEditModal={setShowEditScheduleModal} editable options={scheduleToInfo(form)} Icon={IconScheduleInfo} />
               <ProfilePartInfo title='Tareas y actividades' setShowEditModal={setShowEditTasksModal} editable options={tasksToInfo(form)} Icon={IconTasks} />
-
+              <div className='mb-16 lg:mb-0' />
               {/* Modales de edición */}
               {showEditProfileModal && (<ModalEditProfile userId={userId} form={form} Icon={IconAboutMeInfo} setShowEditProfileModal={setShowEditProfileModal} />)}
               {showEditLocationModal && (<ModalEditLocation userId={userId} form={form} Icon={IconLocationInfo} setShowEditLocationModal={setShowEditLocationModal} />)}
