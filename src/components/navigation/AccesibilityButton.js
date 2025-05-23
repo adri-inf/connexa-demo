@@ -15,12 +15,22 @@ export function AccesibilityButton () {
   const startY = useRef(0)
   const offsetY = useRef(0)
   const DRAG_THRESHOLD = 5 // px
+  const [openUpward, setOpenUpward] = useState(false)
 
   useEffect(() => {
     const savedTop = localStorage.getItem('accessibility-button-top')
     const defaultTop = window.innerHeight * 0.25
-    setTopPosition(savedTop ? parseInt(savedTop, 10) : defaultTop)
+    setSafeTopPosition(savedTop ? parseInt(savedTop, 10) : defaultTop)
   }, [])
+
+  const setSafeTopPosition = (newY) => {
+    const buttonHeight = dropdownRef.current?.offsetHeight || 0
+    const minY = 0
+    const maxY = window.innerHeight - buttonHeight
+    const safeY = Math.max(minY, Math.min(newY, maxY))
+    setTopPosition(safeY)
+    localStorage.setItem('accessibility-button-top', safeY)
+  }
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -28,12 +38,13 @@ export function AccesibilityButton () {
 
       const deltaY = e.clientY - startY.current
       if (!hasDragged.current && Math.abs(deltaY) >= DRAG_THRESHOLD) {
+        setShowModal(false) // ⬅️ Cierra el modal al empezar el drag
         hasDragged.current = true
       }
 
       if (hasDragged.current) {
         const newY = e.clientY - offsetY.current
-        setTopPosition(newY)
+        setSafeTopPosition(newY)
         localStorage.setItem('accessibility-button-top', newY)
       }
     }
@@ -83,7 +94,91 @@ export function AccesibilityButton () {
       e.stopPropagation()
       return
     }
+
+    const screenMiddle = window.innerHeight / 2
+    setOpenUpward(topPosition > screenMiddle)
+
     setShowModal(prev => !prev)
+  }
+
+  // Para moviles
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!isDragging.current) return
+
+      const deltaY = e.clientY - startY.current
+      if (!hasDragged.current && Math.abs(deltaY) >= DRAG_THRESHOLD) {
+        setShowModal(false) // ⬅️ Cierra el modal al empezar el drag
+        hasDragged.current = true
+      }
+
+      if (hasDragged.current) {
+        const newY = e.clientY - offsetY.current
+        setSafeTopPosition(newY)
+        localStorage.setItem('accessibility-button-top', newY)
+      }
+    }
+
+    const handleTouchMove = (e) => {
+      if (!isDragging.current || e.touches.length === 0) return
+
+      const touch = e.touches[0]
+      const deltaY = touch.clientY - startY.current
+      if (!hasDragged.current && Math.abs(deltaY) >= DRAG_THRESHOLD) {
+        setShowModal(false) // ⬅️ Cierra el modal al empezar el drag
+        hasDragged.current = true
+      }
+
+      if (hasDragged.current) {
+        e.preventDefault() // Evita que el body haga scroll
+        const newY = touch.clientY - offsetY.current
+        setSafeTopPosition(newY)
+        localStorage.setItem('accessibility-button-top', newY)
+      }
+    }
+
+    const stopDragging = () => {
+      isDragging.current = false
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mouseup', stopDragging)
+    window.addEventListener('touchmove', handleTouchMove, { passive: false })
+    window.addEventListener('touchend', stopDragging)
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mouseup', stopDragging)
+      window.removeEventListener('touchmove', handleTouchMove, { passive: false })
+      window.removeEventListener('touchend', stopDragging)
+    }
+  }, [])
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (dropdownRef.current) {
+        const buttonHeight = dropdownRef.current.offsetHeight
+        const maxY = window.innerHeight - buttonHeight
+        if (topPosition > maxY) {
+          setSafeTopPosition(maxY)
+        }
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [topPosition])
+
+  const handleTouchStart = (e) => {
+    if (e.touches.length === 0) return
+
+    const touch = e.touches[0]
+    isDragging.current = true
+    hasDragged.current = false
+    startY.current = touch.clientY
+    offsetY.current = touch.clientY - dropdownRef.current.getBoundingClientRect().top
   }
 
   return (
@@ -94,6 +189,7 @@ export function AccesibilityButton () {
     >
       <button
         onMouseDown={handleMouseDown}
+        onTouchStart={handleTouchStart}
         onClick={handleClick}
         type='button'
         className='text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-500 focus:outline-none rounded-tr-lg rounded-br-lg text-sm p-1 cursor-move'
@@ -110,7 +206,8 @@ export function AccesibilityButton () {
 
       {showModal && (
         <div
-          className='border absolute left-0 z-50 w-48 text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600'
+          className={`border absolute left-0 z-50 w-48 text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600
+          ${openUpward ? 'bottom-full mb-2' : 'top-full mt-2'}`}
           id='dropdown-user'
         >
           <ul className='py-1 space-y-2' role='none'>
@@ -121,6 +218,7 @@ export function AccesibilityButton () {
           </ul>
         </div>
       )}
+
     </div>
   )
 }

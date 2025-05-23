@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import { useAccessibility } from '@/context/accesibility'
 
 export default function PaginationMenu ({ totalPages, actualPage, setPage }) {
   const [visiblePages, setVisiblePages] = useState([])
   const [componentWidth, setComponentWidth] = useState(0)
+  const { accessibilityLevel } = useAccessibility()
+  const [maxPages, setMaxPages] = useState(Math.floor(componentWidth / 120))
+  const [minPages, setMinPages] = useState(2)
 
   // Función para obtener el ancho del componente con ID "partContainer"
   const getComponentWidth = () => {
@@ -10,15 +14,26 @@ export default function PaginationMenu ({ totalPages, actualPage, setPage }) {
     return element ? element.getBoundingClientRect().width : window.innerWidth
   }
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (accessibilityLevel > 1 && window.innerWidth <= 400) {
+        setMaxPages(1)
+        setMinPages(1)
+      }
+    }
+
+    // Ejecutar al montar
+    handleResize()
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [accessibilityLevel])
+
   // Función para calcular cuántas páginas se deben mostrar según el ancho de la ventana
   const calculateVisiblePages = useCallback(() => {
   // Ajusta el valor de maxPages en función del tamaño de los botones de paginación.
   // El valor 80 es una estimación del ancho de cada botón de página en píxeles.
   // Si necesitas que los botones se oculten más rápido, aumenta este valor.
-    const maxPages = Math.floor(componentWidth / 120) // 80px por botón, ajusta según sea necesario.
-
-    // Aseguramos que siempre haya al menos 3 elementos visibles: el botón de "anterior", el de "siguiente" y la página actual.
-    const minPages = 2
 
     // Calcula el número de páginas visibles en función del ancho de la ventana.
     // Se limita entre el número máximo de páginas (maxPages) y el número total de páginas disponibles (totalPages).
@@ -53,7 +68,7 @@ export default function PaginationMenu ({ totalPages, actualPage, setPage }) {
 
     // Actualizamos el estado con las páginas visibles calculadas.
     setVisiblePages(pages)
-  }, [componentWidth, actualPage, totalPages]) // Dependencias específicas
+  }, [componentWidth, actualPage, totalPages, maxPages, minPages]) // Dependencias específicas
 
   // Hook para escuchar el cambio de tamaño del componente y recalcular las páginas visibles
   useEffect(() => {
