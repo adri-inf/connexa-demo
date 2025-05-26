@@ -8,7 +8,10 @@ export default async function SobreNosotrosPage () {
             Federación Autismo Castilla-La Mancha
           </h1>
           <p className='mt-4 text-lg leading-7 text-gray-600 dark:text-gray-300'>
-            Una entidad sin ánimo de lucro que trabaja por los derechos y la calidad de vida de las personas con TEA y sus familias.
+            La Federación Autismo Castilla-La Mancha es una organización sin ánimo de lucro.
+          </p>
+          <p className='text-lg leading-7 text-gray-600 dark:text-gray-300'>
+            Trabaja por los derechos y la calidad de vida de las personas con autismo (TEA) y sus familias.
           </p>
         </header>
 
@@ -18,7 +21,16 @@ export default async function SobreNosotrosPage () {
               <h2 className='text-2xl font-bold text-primary dark:text-primary-dark'>¿Quiénes somos?</h2>
             </header>
             <p className='mt-4 text-gray-700 dark:text-gray-300'>
-              Nacimos en 2010 con el objetivo de agrupar y representar institucionalmente a las personas con TEA y sus familias asociadas a las entidades provinciales de atención directa. Nuestra misión principal es servir como interlocutor y representante ante Administraciones Públicas y agentes sociales.
+              La Federación existe desde el año 2010.
+            </p>
+            <p className='text-gray-700 dark:text-gray-300'>
+              Su objetivo es unir y representar a las personas con TEA y a sus familias.
+            </p>
+            <p className='text-gray-700 dark:text-gray-300'>
+              También representa a las entidades que dan atención directa a las personas con TEA y a sus familias.
+            </p>
+            <p className='text-gray-700 dark:text-gray-300'>
+              La Federación habla en nombre del colectivo ante las instituciones públicas y otros grupos sociales.
             </p>
           </article>
           <article className='bg-white shadow-lg rounded-lg p-6 dark:bg-gray-800 border border-gray-50 dark:border-gray-700'>
@@ -26,20 +38,34 @@ export default async function SobreNosotrosPage () {
               <h2 className='text-2xl font-bold text-primary dark:text-primary-dark'>¿Qué hacemos?</h2>
             </header>
             <p className='mt-4 text-gray-700 dark:text-gray-300'>
-              Realizamos incidencia política y social, trabajamos por la convergencia y cohesión asociativa, y defendemos los derechos y la calidad de vida de las personas con TEA y sus familias en una sociedad inclusiva y solidaria.
+              La Federación defiende los derechos de las personas con TEA y sus familias.
+            </p>
+            <p className='text-gray-700 dark:text-gray-300'>
+              Trabajamos para crear una sociedad más justa, inclusiva y solidaria.
+            </p>
+            <p className='text-gray-700 dark:text-gray-300'>
+              También apoyamos a las asociaciones de la región para que estén unidas y sean más fuertes.
             </p>
           </article>
         </section>
 
-        <section className='mt-10 bg-blue-100 p-6 rounded-lg dark:bg-gray-800 border border-gray-50 dark:border-gray-700'>
+        <section className='justify-center mt-10 bg-blue-100 p-6 rounded-lg dark:bg-gray-800 border border-gray-50 dark:border-gray-700'>
           <header>
-            <h2 className='text-2xl font-bold text-primary dark:text-primary-dark'>
+            <h2 className='text-center text-2xl font-bold text-primary dark:text-primary-dark'>
               Nuestra Misión
             </h2>
           </header>
-          <p className='mt-4 text-gray-700 dark:text-gray-300'>
-            Apoyar el desarrollo de nuestras entidades y representar institucionalmente al colectivo que agrupamos, con el objetivo de mejorar la calidad de vida de las personas con autismo y sus familias, promoviendo una sociedad inclusiva y solidaria.
-          </p>
+          <div className='max-w-3xl mx-auto'>
+            <p className='mt-4 text-gray-700 dark:text-gray-300'>
+              Apoyar a nuestras entidades y representar al colectivo que formamos.
+            </p>
+            <p className='text-gray-700 dark:text-gray-300'>
+              Queremos mejorar la calidad de vida de las personas con TEA y sus familias.
+            </p>
+            <p className='text-gray-700 dark:text-gray-300'>
+              Promovemos una sociedad donde todas las personas tengan las mismas oportunidades.
+            </p>
+          </div>
           <div className='mt-6 text-center'>
             <a
               href='https://www.autismocastillalamancha.org/presentacion/'

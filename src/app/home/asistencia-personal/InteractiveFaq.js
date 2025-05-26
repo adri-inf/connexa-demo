@@ -19,93 +19,133 @@ export function InteractiveFaq () {
     {
       question: '¿Qué es la asistencia personal?',
       answer: (
-        <p>
-          La Asistencia Personal supone un cambio radical respecto a la forma
-          de entender y atender la discapacidad. Ahora, el destinatario es quien
-          decide el tipo de apoyo, cuándo y cómo lo recibirá, haciendo efectivo
-          el ejercicio de su autodeterminación.
-        </p>
+        <>
+          <p>La asistencia personal es una forma nueva de apoyar a las personas con discapacidad.</p>
+          <p>Ahora, la persona decide qué apoyo necesita, cuándo y cómo lo quiere.</p>
+          <p>Así se respeta su derecho a tomar decisiones.</p>
+        </>
       )
     },
     {
-      question: '¿Cuáles son los beneficios de la asistencia personal?',
+      question: '¿Qué beneficios tiene?',
       answer: (
-        <p>
-          La asistencia personal mejora el desarrollo de la autonomía personal
-          de las personas dependientes, lo que conlleva un aumento en las
-          oportunidades de participación e inclusión social.
-        </p>
+        <>
+          <p>
+            La asistencia personal ayuda a que la persona sea más autónoma.
+          </p>
+          <p>
+            También mejora su participación social.
+          </p>
+        </>
       )
     },
     {
-      question: '¿Qué tareas realiza un Asistente Personal?',
+      question: '¿Qué tareas hace un asistente personal?',
       answer: (
-        <ul className='list-disc pl-5 space-y-2'>
-          <li>Aseo y autocuidado</li>
-          <li>Alimentación y actividades diarias</li>
-          <li>Apoyo a la comunicación (uso de sistemas alternativos y aumentativos)</li>
-          <li>Gestión del hogar (limpieza, mantenimiento, compras, comidas)</li>
-          <li>Acompañamiento (desplazamientos al médico, trabajo, ocio, etc.)</li>
-          <li>Apoyo en la planificación del día a día y toma de decisiones</li>
-        </ul>
+        <>
+          <p>
+            Un asistente personal puede ayudar en:
+          </p>
+          <ul className='list-disc pl-5 space-y-2'>
+            <li>Aseo y autocuidado</li>
+            <li>Comidas y tareas del hogar</li>
+            <li>Comunicación (por ejemplo, con sistemas aumentativos)</li>
+            <li>Compras, gestiones y trámites</li>
+            <li>Acompañamiento (en el trabajo, en el ocio, etc.)</li>
+            <li>Organización del día y toma de decisiones</li>
+          </ul>
+        </>
       )
     },
     {
-      question: '¿Qué diferencias existen entre un Asistente Personal y un Cuidador?',
+      question: '¿Qué diferencia hay entre un asistente personal y un cuidador?',
       answer: (
-        <p>
-          El rol del Asistente Personal NO es el de un cuidador. Un Asistente
-          Personal apoya en las actividades de la vida diaria, mientras que el
-          cuidador se centra en el cuidado personal. El Asistente Personal
-          permite la vida independiente, respetando la autodeterminación de la
-          persona.
-        </p>
+        <>
+          <p>
+            El asistente personal no es un cuidador.
+          </p>
+          <p>
+            El cuidador decide y cuida.
+          </p>
+          <p>
+            El asistente respeta la autonomía de la persona.
+          </p>
+          <p>
+            Le ayuda a vivir de forma independiente.
+          </p>
+        </>
+
       )
     },
     {
-      question: '¿Cómo se adaptan las tareas a las necesidades de la persona?',
+      question: '¿Se adaptan las tareas a cada persona?',
       answer: (
-        <p>
-          Las tareas deben ajustarse a las necesidades particulares de cada
-          persona con TEA, y serán acordadas por ambas partes, garantizando la
-          flexibilidad necesaria para un apoyo personalizado y efectivo.
-        </p>
+        <>
+          <p>
+            Sí.
+          </p>
+          <p>
+            Las tareas se ajustan a las necesidades de cada persona con TEA.
+          </p>
+          <p>
+            Se acuerdan entre ambas partes.
+          </p>
+          <p>
+            Así se consigue un apoyo flexible y útil.
+          </p>
+        </>
       )
     },
     {
-      question: '¿Cómo contribuye la asistencia personal a la inclusión social?',
+      question: '¿Cómo ayuda a la inclusión social?',
       answer: (
-        <p>
-          La asistencia personal actúa como un agente de cambio, facilitando la
-          inclusión social y la participación activa en la comunidad.
-          Proporciona a las personas con TEA la libertad y autonomía necesarias
-          para decidir sobre su propia vida, contribuyendo a su bienestar y
-          satisfacción.
-        </p>
+        <>
+          <p>
+            La asistencia personal permite que la persona con TEA participe más en la sociedad.
+          </p>
+          <p>
+            Le da apoyo para tomar decisiones y vivir como quiera.
+          </p>
+          <p>
+            Eso mejora su bienestar y su felicidad.
+          </p>
+        </>
       )
     },
     {
-      question: '¿Qué impacto tiene la asistencia personal en las personas con TEA?',
+      question: '¿Qué impacto tiene en las personas con TEA?',
       answer: (
-        <p>
-          La asistencia personal permite a las personas con TEA vivir de forma
-          independiente, tomando decisiones sobre su vida, lo que mejora su
-          calidad de vida y reduce la sobrecarga familiar. Además, posibilita
-          alternativas a los ingresos residenciales no deseados.
-        </p>
+        <>
+          <p>
+            Las personas con TEA pueden vivir de forma más independiente.
+          </p>
+          <p>
+            Toman decisiones sobre su vida.
+          </p>
+          <p>
+            Esto mejora su calidad de vida y reduce el esfuerzo de sus familias.
+          </p>
+          <p>
+            También se evitan ingresos en centros no deseados.
+          </p>
+        </>
       )
     },
     {
       question:
-        '¿Cómo se relaciona la asistencia personal con la Convención de los Derechos de las Personas con Discapacidad?',
+        '¿Qué relación tiene con los derechos de las personas con discapacidad?',
       answer: (
-        <p>
-          La asistencia personal es un modelo de apoyo inclusivo que está
-          alineado con los derechos fundamentales de las personas con
-          discapacidad, recogidos en la Convención Internacional de la ONU.
-          Facilita la participación plena en la sociedad como individuos de
-          pleno derecho.
-        </p>
+        <>
+          <p>
+            La asistencia personal respeta los derechos de las personas con discapacidad.
+          </p>
+          <p>
+            Está basada en la Convención de la ONU.
+          </p>
+          <p>
+            Ayuda a que puedan participar en la sociedad como cualquier otra persona.
+          </p>
+        </>
       )
     }
   ]

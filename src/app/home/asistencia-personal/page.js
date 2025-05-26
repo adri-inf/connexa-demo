@@ -7,18 +7,29 @@ import { InteractiveFaq } from './InteractiveFaq'
 export default async function AsistenciaPersonalPage () {
   return (
     <section className='py-12 h-full'>
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
-        <header className='text-center'>
-          <h1 className='text-4xl font-extrabold text-gray-900 sm:text-5xl dark:text-gray-100'>
-            Servicio de Asistencia Personal: Un cambio hacia la independencia
+      <div className='max-w-4xl mx-auto'>
+        <header>
+          <h1 className='text-center text-4xl font-extrabold text-gray-900 sm:text-5xl dark:text-gray-100'>
+            Servicio de Asistencia Personal
           </h1>
-          <p className='mt-4 text-lg text-gray-600 dark:text-gray-300'>
-            Un modelo transformador de apoyo para las personas con TEA, basado en la autodeterminación y la inclusión social.
-          </p>
+          <h1 className='text-center text-4xl font-extrabold text-gray-900 sm:text-5xl dark:text-gray-100'>
+            Un cambio hacia la independencia
+          </h1>
+          <div className='mx-auto max-w-5xl'>
+            <p className='mt-4 text-lg text-gray-600 dark:text-gray-300'>
+              Este servicio ofrece apoyo a las personas con autismo (TEA).
+            </p>
+            <p className='text-lg text-gray-600 dark:text-gray-300'>
+              Se basa en que cada persona decida por sí misma.
+            </p>
+            <p className='text-lg text-gray-600 dark:text-gray-300'>
+              También busca su inclusión en la sociedad.
+            </p>
+          </div>
         </header>
 
         {/* Carga dinámica del componente interactivo */}
-        <div className='mt-12'>
+        <div className='mt-4 max-w-4xl mx-auto'>
           <InteractiveFaq />
         </div>
       </div>

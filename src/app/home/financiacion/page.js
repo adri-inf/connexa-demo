@@ -1,7 +1,7 @@
 'use server'
 export default async function FinanciacionPage () {
   return (
-    <section className='py-16 h-full'>
+    <section className='py-16 h-full mx-auto max-w-4xl'>
       <div className='max-w-7xl mx-auto px-6 lg:px-8'>
 
         <header className='text-center'>
@@ -15,56 +15,68 @@ export default async function FinanciacionPage () {
             Contexto Legal
           </h2>
           <p className='leading-relaxed dark:text-gray-300'>
-            La Ley 39/2006, de 14 de diciembre, de promoción de la autonomía personal y
-            atención a las personas en situación de dependencia (en adelante, la Ley de
-            Dependencia), define la asistencia personal como “el servicio prestado por un
-            asistente personal que realiza o colabora en tareas de la vida cotidiana de una
-            persona en situación de dependencia, de cara a fomentar su vida independiente,
-            promoviendo y potenciando su autonomía personal”.
+            La <strong>Ley 39/2006</strong>, del 14 de diciembre, habla sobre el apoyo a personas en situación de dependencia.
+          </p>
+          <p className='leading-relaxed dark:text-gray-300'>
+            Define la asistencia personal como un servicio que da apoyo en tareas diarias.
+          </p>
+          <p className='leading-relaxed dark:text-gray-300'>
+            Este apoyo ayuda a que la persona sea más autónoma y viva de forma independiente
           </p>
         </section>
 
         <section className='mb-8'>
           <h2 className='text-2xl font-semibold mb-4 dark:text-gray-100'>
-            Prestaciones Económicas
+            ¿Hay ayudas económicas?
           </h2>
           <p className='leading-relaxed dark:text-gray-300'>
-            El artículo 19 de la Ley 39/2006 contempla como forma de provisión una
-            prestación económica directa a la persona en situación de dependencia para la
-            contratación de la asistencia personal (AP). Esta prestación tiene como
-            objetivo facilitar la autonomía y el acceso a la educación, el trabajo y otras
-            actividades básicas de la vida diaria.
+            Sí.
+          </p>
+          <p className='leading-relaxed dark:text-gray-300'>
+            El <strong>artículo 19 de la Ley 39/2006</strong> permite dar una ayuda económica directa.
+          </p>
+          <p className='leading-relaxed dark:text-gray-300'>
+            Esta ayuda sirve para contratar a un asistente personal.
+          </p>
+          <p className='leading-relaxed dark:text-gray-300'>
+            El objetivo es facilitar la autonomía y el acceso a actividades como la educación o el trabajo.
           </p>
         </section>
 
         <section className='mb-8'>
           <h2 className='text-2xl font-semibold mb-4 dark:text-gray-100'>
-            Regulación en Castilla-La Mancha
+            ¿Qué pasa en Castilla-La Mancha?
           </h2>
           <p className='leading-relaxed dark:text-gray-300'>
-            En Castilla-La Mancha, el Decreto 3/2016 regula la prestación económica de AP,
-            destacando que la persona beneficiaria debe tener capacidad para determinar las
-            tareas requeridas y gestionar las instrucciones hacia la persona encargada de
-            la AP.
+            En Castilla-La Mancha existe el <strong>Decreto 3/2016</strong>.
+          </p>
+          <p className='leading-relaxed dark:text-gray-300'>
+            Este decreto explica cómo se da la ayuda económica para la asistencia personal.
+          </p>
+          <p className='leading-relaxed dark:text-gray-300'>
+            La persona debe cumplir tres condiciones:
           </p>
           <ul className='list-disc list-inside mt-4 dark:text-gray-300'>
-            <li>Tener situación de dependencia reconocida en cualquiera de sus grados.</li>
-            <li>Tener tres años o más.</li>
+            <li>Tener reconocida una situación de dependencia (de cualquier grado).</li>
+            <li> <strong>Tener al menos 3 años</strong>.</li>
             <li>
-              Requerir apoyos para desarrollar un proyecto de vida que permita la
-              participación plena en ámbitos educativos, laborales, sociales y de ocio.
+              Necesitar apoyos para desarrollar un proyecto de vida, por ejemplo en el colegio, en el trabajo o en actividades de ocio.
             </li>
           </ul>
         </section>
 
         <section className='mb-8'>
           <h2 className='text-2xl font-semibold mb-4 dark:text-gray-100'>
-            Marco Común
+            ¿Qué normas hay para toda España?
           </h2>
           <p className='leading-relaxed dark:text-gray-300'>
-            El Consejo Territorial de Servicios Sociales y del SAAD estableció en mayo de
-            2023 un acuerdo que regula las condiciones específicas de acceso a la AP,
-            unificando criterios a nivel nacional en el marco de la Ley de Dependencia.
+            En mayo de 2023, el Consejo de Servicios Sociales y el SAAD aprobaron un <span>acuerdo común</span>.
+          </p>
+          <p className='leading-relaxed dark:text-gray-300'>
+            Este acuerdo unifica las condiciones para acceder a la asistencia personal en toda España.
+          </p>
+          <p className='leading-relaxed dark:text-gray-300'>
+            Se aplica dentro del marco de la Ley de Dependencia.
           </p>
         </section>
       </div>

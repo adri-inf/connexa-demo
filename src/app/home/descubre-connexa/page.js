@@ -11,11 +11,17 @@ export default async function DescubreConnexaPage () {
           <div className='md:w-1/2'>
             <header className='text-left'>
               <h1 className='text-4xl font-extrabold text-gray-900 sm:text-5xl dark:text-gray-100'>
-                Connexa: Conectando a Profesionales con Personas con TEA
+                Connexa: conecta a personas con TEA y profesionales
               </h1>
 
               <p className='mt-4 text-lg text-gray-600 tracking-wide dark:text-gray-300'>
-                Connexa es una herramienta digital que conecta a profesionales de la asistencia personal con personas con trastorno del espectro del autismo (TEA), apoyando el desarrollo de su vida independiente.
+                Connexa es una herramienta digital.
+              </p>
+              <p className='text-lg text-gray-600 tracking-wide dark:text-gray-300'>
+                Esta herramienta sirve para poner en contacto a personas con autismo (TEA) y a profesionales de asistencia personal.
+              </p>
+              <p className='text-lg text-gray-600 tracking-wide dark:text-gray-300'>
+                El objetivo es ayudar a las personas con TEA a vivir de forma más independiente.
               </p>
               <div className='mt-8 flex justify-center'>
                 <Link
@@ -42,10 +48,16 @@ export default async function DescubreConnexaPage () {
         <section className='mt-16'>
           <div className='max-w-3xl mx-auto'>
             <h2 className='text-3xl text-center font-bold text-gray-900 dark:text-gray-100'>
-              ¿Cómo Funciona Connexa?
+              ¿Cómo funciona Connexa?
             </h2>
             <p className='mt-6 text-lg text-gray-600 dark:text-gray-300'>
-              Connexa proporciona a las personas con TEA un asistente personal adaptado a sus necesidades individuales, facilitando el acceso a un perfil profesional de asistencia personalizada en el marco de apoyo.
+              Connexa busca un profesional adecuado para cada persona con TEA.
+            </p>
+            <p className='text-lg text-gray-600 dark:text-gray-300'>
+              El profesional ayuda según las necesidades de la persona.
+            </p>
+            <p className='text-lg text-gray-600 dark:text-gray-300'>
+              Así se da un apoyo personalizado para cada caso.
             </p>
           </div>
         </section>
@@ -54,34 +66,34 @@ export default async function DescubreConnexaPage () {
         <section className='mt-16 grid grid-cols-1 md:grid-cols-2 gap-12'>
           <article className='bg-white shadow-lg rounded-lg p-6 dark:bg-gray-800 border border-gray-50 dark:border-gray-700'>
             <header>
-              <h2 className='text-2xl font-bold text-primary dark:text-primary-dark'>¿A Quién Está Dirigido Connexa?</h2>
+              <h2 className='text-2xl font-bold text-primary dark:text-primary-dark'>¿A quién está dirigido Connexa?</h2>
             </header>
-            <ul className='mt-4 list-inside list-disc text-gray-700 dark:text-gray-300'>
-              <li><strong>Personas con diagnóstico de TEA</strong> que desean desarrollar su vida independiente.</li>
-              <li><strong>Profesionales de asistencia personal</strong> interesados en trabajar con personas con TEA.</li>
-              <li><strong>Familias</strong> que se benefician del apoyo indirecto brindado por la herramienta.</li>
+            <p className='mt-4 text-lg text-gray-600 dark:text-gray-300'>Connexa está pensado para:</p>
+            <ul className='list-inside list-disc text-gray-700 dark:text-gray-300'>
+              <li><strong>Personas con TEA</strong> que quieren vivir de forma independiente.</li>
+              <li><strong>Profesionales</strong> que quieren trabajar apoyando a personas con TEA.</li>
+              <li><strong>Familias</strong> que también se benefician del apoyo que da la herramienta.</li>
             </ul>
           </article>
 
           <article className='bg-white shadow-lg rounded-lg p-6 dark:bg-gray-800 border border-gray-50 dark:border-gray-700'>
             <header>
-              <h2 className='text-2xl font-bold text-primary dark:text-primary-dark'>Beneficios Indirectos</h2>
+              <h2 className='text-2xl font-bold text-primary dark:text-primary-dark'>Beneficios para otras personas</h2>
             </header>
             <p className='mt-4 text-gray-700 dark:text-gray-300'>
-              Las familias de las personas con TEA, así como los profesionales de los servicios de apoyo y la sociedad en general, se benefician de este proyecto integral que promueve la inclusión y la calidad de vida.
+              Connexa no solo ayuda a las personas con TEA.
             </p>
+            <p className='text-gray-700 dark:text-gray-300'>
+              También ayuda a sus familias y a los profesionales.
+            </p>
+            <p className='mt-4 text-gray-700 dark:text-gray-300'>
+              La sociedad también gana:
+            </p>
+            <ul className='list-inside list-disc text-gray-700 dark:text-gray-300'>
+              <li><strong>Hay más inclusión</strong>, más apoyos y mejor calidad de vida para todos.</li>
+            </ul>
           </article>
         </section>
-
-        {/* Sección de Misión */}
-        {/* <section className='mt-16 bg-blue-100 p-6 rounded-lg text-center'>
-          <header>
-            <h2 className='text-2xl font-bold text-blue-600'>Nuestra Misión</h2>
-          </header>
-          <p className='mt-4 text-lg text-gray-700'>
-            Apoyar el desarrollo de las personas con TEA y las entidades que las representan, garantizando una integración social y un acceso a los servicios necesarios para mejorar su calidad de vida.
-          </p>
-        </section> */}
       </div>
     </section>
   )

@@ -9,11 +9,11 @@ export default async function ContactoPage () {
             Datos de contacto
           </h2>
           <p className='text-gray-700 leading-relaxed dark:text-gray-300'>
-            Puedes escribirnos o llamarnos a cualquiera de los siguientes medios:
+            Puedes escribirnos o llamarnos.
           </p>
           <ul className='mt-4 space-y-3 text-gray-800 dark:text-gray-300'>
             <li>
-              📧 <strong>Email:</strong>
+              📧 <strong>Correo electrónico</strong>
               <a href='mailto:info@autismocastillalamancha.org' className='text-primary dark:text-primary-dark  hover:text-primary-hover hover:dark:text-primary-hover-dark hover:underline break-words'> info@autismocastillalamancha.org</a>
             </li>
             <li>
@@ -27,14 +27,23 @@ export default async function ContactoPage () {
 
         <section className='bg-white shadow-md rounded-lg p-6 mt-10 dark:bg-gray-800'>
           <h2 className='text-2xl font-semibold mb-4 dark:text-gray-100'>
-            Nuestra ubicación
+            ¿Dónde estamos?
           </h2>
           <p className='text-gray-700 leading-relaxed dark:text-gray-100'>
-            Puedes localizarnos en Escalerillas de la Vega, 1 - Bajo Derecha 45004 - Toledo
+            Puedes encontrarnos en:
+          </p>
+          <p className='text-gray-700 leading-relaxed dark:text-gray-100'>
+            <span>Calle Escalerillas de la Vega, 1 - Bajo Derecha
+              45004 - Toledo
+            </span>
           </p>
 
+          <h3 className='mt-4 text-xl font-semibold mb-4 dark:text-gray-100'>
+            Aquí tienes un mapa para saber cómo llegar:
+          </h3>
+
           {/* Mapa de Google */}
-          <div className='mt-10 rounded-lg overflow-hidden shadow-md'>
+          <div className='mt-2 rounded-lg overflow-hidden shadow-md'>
             <iframe
               src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3062.4199317655753!2d-4.0285723237367295!3d39.864830671533554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6a0bb78fbf657b%3A0xcd3e6989ce940fa0!2sFederaci%C3%B3n%20Autismo%20Castilla-La%20Mancha!5e0!3m2!1ses!2ses!4v1732395369617!5m2!1ses!2ses'
               width='100%'
