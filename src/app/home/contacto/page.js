@@ -13,8 +13,7 @@ export default async function ContactoPage () {
           </p>
           <ul className='mt-4 space-y-3 text-gray-800 dark:text-gray-300'>
             <li>
-              📧 <strong>Correo electrónico</strong>
-              <a href='mailto:info@autismocastillalamancha.org' className='text-primary dark:text-primary-dark  hover:text-primary-hover hover:dark:text-primary-hover-dark hover:underline break-words'> info@autismocastillalamancha.org</a>
+              📧 <strong>Correo electrónico:</strong> <a href='mailto:info@autismocastillalamancha.org' className='text-primary dark:text-primary-dark  hover:text-primary-hover hover:dark:text-primary-hover-dark hover:underline break-words'> info@autismocastillalamancha.org</a>
             </li>
             <li>
               📞 <strong>Teléfono fijo:</strong> <a href='tel:925970073' className='text-primary dark:text-primary-dark  hover:text-primary-hover hover:dark:text-primary-hover-darkhover:underline'>925 97 00 73</a>

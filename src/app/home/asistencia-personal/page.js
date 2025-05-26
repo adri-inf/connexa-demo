@@ -12,7 +12,7 @@ export default async function AsistenciaPersonalPage () {
           <h1 className='lg:text-center text-4xl font-extrabold text-gray-900 sm:text-5xl dark:text-gray-100'>
             Servicio de Asistencia Personal
           </h1>
-          <h1 className='lg:text-center text-4xl font-extrabold text-gray-900 sm:text-5xl dark:text-gray-100'>
+          <h1 className='mt-5 lg:text-center text-2xl font-semibold text-gray-900 sm:text-3xl dark:text-gray-100'>
             Un cambio hacia la independencia
           </h1>
           <div className='mx-auto max-w-5xl'>
