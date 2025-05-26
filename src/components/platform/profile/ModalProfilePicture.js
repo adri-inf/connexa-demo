@@ -58,16 +58,16 @@ export default function ModalProfilePicture ({ setShowProfilePictureModal, actua
 
   return (
     <div
-      className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center max-h-full inset-0 bg-gray-900 bg-opacity-50 overflow-y-scroll'
+      className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center max-h-full inset-0 bg-gray-900 bg-opacity-50'
       onClick={() =>
         setShowProfilePictureModal(false)}
     >
       <div
-        className='lg:ml-64 relative w-full max-w-lg max-h-screen'
+        className='lg:ml-64 relative w-full max-w-lg'
         onClick={(e) => e.stopPropagation()} // Para evitar propagaacion de cerrar modal
       >
         <div
-          className='max-h-[85vh] overflow-auto dark:border border-gray-700 m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative'
+          className='overflow-y-auto max-h-[85vh] dark:border border-gray-700 m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative'
         >
           {/* Botón para cerrar */}
           <div className='flex justify-end'>
@@ -85,11 +85,11 @@ export default function ModalProfilePicture ({ setShowProfilePictureModal, actua
           </div>
 
           {/* Contenido principal del modal */}
-          <h2 className='text-center text-lg font-semibold mb-6'>
+          <h2 className='text-center text-base lg:text-lg font-semibold mb-2'>
             Cambia tu foto de perfil
           </h2>
 
-          <form onSubmit={handleCustomSubmit}>
+          <form className='overflow-y-auto' onSubmit={handleCustomSubmit}>
             <CropImage defaultImgSrc={actualImgSrc} ref={cropImageRef} errors={errors.profilePicture} />
 
             <Button className='text-white dark:text-black bg-primary hover:bg-primary-hover dark:bg-primary-dark dark:hover:bg-primary-hover-dark font-medium rounded-lg text-md w-full px-5 py-2.5 text-center mt-8' type='submit' text='Cambiar' />

@@ -5,7 +5,6 @@
 import TopNav from '../../components/navigation/TopNav.js'
 import Footer from '@/components/Footer.js'
 import { DefaultBackground } from '@/components/backgrounds/DefaultBackground.js'
-import { AccesibilityButton } from '@/components/navigation/AccesibilityButton.js'
 
 export default async function HomeLayout ({ children }) {
   return (
@@ -20,7 +19,6 @@ export default async function HomeLayout ({ children }) {
         {/* Contenido */}
         {children}
       </main>
-      <AccesibilityButton />
       <Footer />
 
     </>

@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { logoutClick } from '@/utils/sessionClient'
 import { useCommonPlatform } from '@/context/commonPlatform'
+import { AccesibilityButton } from './AccesibilityButton'
 
 const logoConnexa = '/logo_connexa.webp'
 
@@ -54,6 +55,7 @@ export default function PlatformTopNav () {
               </Link>
             </div>
             <div className='flex items-center'>
+              <AccesibilityButton />
               <div className='flex items-center ms-3'>
                 <div className='flex gap-x-4 items-center'>
                   <button type='button' className='flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600' aria-expanded='false' data-dropdown-toggle='dropdown-user'>

@@ -62,16 +62,16 @@ export default function ModalEditPersonalInfo ({ setShowEditPersonalInfoModal, u
 
   return (
     <div
-      className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center  max-h-full inset-0 bg-gray-900 bg-opacity-50 overflow-y-auto'
+      className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center  max-h-full inset-0 bg-gray-900 bg-opacity-50'
       onClick={() =>
         setShowEditPersonalInfoModal(false)}
     >
       <div
-        className='lg:ml-64 w-full max-w-2xl max-h-screen'
+        className='lg:ml-64 w-full max-w-2xl'
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className='max-h-[85vh] overflow-auto  m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
+          className='overflow-y-auto max-h-[85vh] m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
         >
           {/* Botón para cerrar */}
           <div className='flex justify-end'>
@@ -91,10 +91,10 @@ export default function ModalEditPersonalInfo ({ setShowEditPersonalInfoModal, u
           {/* Contenido principal del modal */}
           <div className='mb-2 flex justify-center gap-x-2 items-center text-xl text-primary dark:text-primary-dark font-semibold'>
             <Icon />
-            <h2 className='text-sm lg:text-base'>Edita tu información personal</h2>
+            <h2 className='text-base lg:text-lg'>Edita tu información personal</h2>
           </div>
 
-          <form className='pt-4 overflow-y-auto' onSubmit={handleSubmit(endUptade)}>
+          <form className='pt-2 overflow-y-auto' onSubmit={handleSubmit(endUptade)}>
             <TextInput
               type='text'
               id='firstName'

@@ -66,7 +66,7 @@ export default function ModalHelp ({ setShowHelpModal, Part }) {
           {/* Slide container con scroll horizontal */}
           <div
             ref={containerRef}
-            className='relative flex-1 flex overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth'
+            className='relative flex-1 flex overflow-hidden snap-x snap-mandatory scroll-smooth'
           >
             <Part setTitle={setTitle} index={currentIndex} />
           </div>

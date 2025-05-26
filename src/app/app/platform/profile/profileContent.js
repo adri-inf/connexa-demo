@@ -136,9 +136,7 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
               {/* Partes de información de compatibilidad */}
               <ProfilePartInfo highlightFirst title='Perfil' setShowEditModal={setShowEditProfileModal} editable options={aboutMeToInfo(form)} Icon={IconAboutMeInfo} />
               {/* Parte exclusiva de usuarios regulares */}
-              {role === 'regular' && (
-                <ProfilePartInfo title='Preferencias sobre asistente' setShowEditModal={setShowEditHelperPreferencesModal} editable options={helperPreferencesToInfo(form)} Icon={IconHelperPreferencesInfo} />
-              )}
+              <ProfilePartInfo title='Preferencias sobre asistente' setShowEditModal={setShowEditHelperPreferencesModal} editable options={helperPreferencesToInfo(form)} Icon={IconHelperPreferencesInfo} />
               <ProfilePartInfo highlightFirst={Boolean(form.formRegularInfo)} title='Ubicación' setShowEditModal={setShowEditLocationModal} editable options={locationToInfo(form)} Icon={IconLocationInfo} />
               <ProfilePartInfo title='Horario' setShowEditModal={setShowEditScheduleModal} editable options={scheduleToInfo(form)} Icon={IconScheduleInfo} />
               <ProfilePartInfo title='Tareas y actividades' setShowEditModal={setShowEditTasksModal} editable options={tasksToInfo(form)} Icon={IconTasks} />

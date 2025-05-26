@@ -111,7 +111,7 @@ export default function ModalEditLocation ({ setShowEditLocationModal, Icon, for
 
   return (
     <div
-      className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center  max-h-full inset-0 bg-gray-900 bg-opacity-50 overflow-y-auto'
+      className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center  max-h-full inset-0 bg-gray-900 bg-opacity-50'
       onClick={() =>
         setShowEditLocationModal(false)}
     >
@@ -120,7 +120,7 @@ export default function ModalEditLocation ({ setShowEditLocationModal, Icon, for
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className='max-h-[85vh] overflow-auto  m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
+          className='overflow-y-auto max-h-[85vh] m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
         >
           {/* Botón para cerrar */}
           <div className='flex justify-end'>
@@ -138,11 +138,11 @@ export default function ModalEditLocation ({ setShowEditLocationModal, Icon, for
           </div>
 
           {/* Contenido principal del modal */}
-          <div className='mb-9 flex justify-center gap-x-2 items-center text-xl text-primary dark:text-primary-dark font-semibold'>
+          <div className='mb-2 flex justify-center gap-x-2 items-center text-xl text-primary dark:text-primary-dark font-semibold'>
             <Icon />
-            <h2>Edita tu ubicación y horario</h2>
+            <h2 className='text-base lg:text-lg'>Edita tu ubicación y horario</h2>
           </div>
-          <form onSubmit={handleSubmit(endUpdate)}>
+          <form className='pt-4 overflow-y-auto' onSubmit={handleSubmit(endUpdate)}>
             <SelectInput
               label='¿En qué municipio te encuentras?'
               options={locationOptions}

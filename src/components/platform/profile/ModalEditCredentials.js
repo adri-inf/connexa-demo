@@ -133,16 +133,16 @@ export default function ModalEditCredentials ({ setShowEditCredentialsModal, use
 
   return (
     <div
-      className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center  max-h-full inset-0 bg-gray-900 bg-opacity-50 overflow-y-auto'
+      className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center  max-h-full inset-0 bg-gray-900 bg-opacity-50'
       onClick={() =>
         setShowEditCredentialsModal(false)}
     >
       <div
-        className='lg:ml-64 w-full max-w-xl max-h-screen'
+        className='lg:ml-64 w-full max-w-xl'
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className='max-h-[85vh] overflow-auto  m-2 lg:m-4 min-h-[390px] p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
+          className='overflow-y-auto h-[85vh] max-h-[400px] m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
         >
           {/* Botón para cerrar */}
           <div className={`flex ${index > 0 ? 'justify-between' : 'justify-end'}`}>
@@ -172,13 +172,13 @@ export default function ModalEditCredentials ({ setShowEditCredentialsModal, use
           </div>
 
           {/* Contenido principal del modal */}
-          <div className='mb-6 flex justify-center gap-x-2 items-center text-xl text-primary dark:text-primary-dark font-semibold'>
+          <div className='mb-2 flex justify-center gap-x-2 items-center text-xl text-primary dark:text-primary-dark font-semibold'>
             <Icon />
-            <h2>Ajustes avanzados</h2>
+            <h2 className='text-base lg:text-lg'>Ajustes avanzados</h2>
           </div>
 
           {index === 0 && (
-            <div className='mt-5 flex flex-col gap-4'>
+            <div className='mt-4 flex flex-1 flex-col gap-4 overflow-y-auto'>
               <Button onClick={() => { setIndex(2) }} text='Cambiar email' />
               <Button onClick={() => { setIndex(3) }} text='Cambiar contraseña' />
               <Button
@@ -189,40 +189,43 @@ export default function ModalEditCredentials ({ setShowEditCredentialsModal, use
           )}
 
           {index === 2 && (
-            <form className='flex-1 flex flex-col justify-between' autoComplete='off' onSubmit={handleSubmit(endUptadeEmail)}>
-              <TextInput
-                type='text'
-                id='email'
-                htmlFor='email'
-                label='Email'
-                defaultValue={user.email}
-                disabled
-              />
+            <form className='overflow-y-auto pt-2 flex-1 flex flex-col justify-between' autoComplete='off' onSubmit={handleSubmit(endUptadeEmail)}>
 
-              <TextInput
-                type='text'
-                id='nemail'
-                htmlFor='nemail'
-                label='Nuevo email'
-                {...(emailExists ? { errors: emailError } : {})} // Pasamos los errores cuando intentamos ir al siguiente paso
-                {...(errors.email ? { errors: errors.email } : {})} // Pasamos los errores cuando intentamos ir al siguiente paso
-                {...register('email', {
-                  onBlur: handleEmailBlur,
-                  onChange: () => setEmailExists(false) // Borra el error al cambiar el valor
-                })}
-              />
+              <div>
+                <TextInput
+                  type='text'
+                  id='email'
+                  htmlFor='email'
+                  label='Email'
+                  defaultValue={user.email}
+                  disabled
+                />
 
-              <div className='flex items-center p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300' role='alert'>
-                <svg className='shrink-0 inline w-4 h-4 me-3' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 20 20'>
-                  <path d='M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z' />
-                </svg>
-                <span className='sr-only'>Info</span>
-                <div>
-                  Se enviará un correo al nuevo email para verificarlo.
+                <TextInput
+                  type='text'
+                  id='nemail'
+                  htmlFor='nemail'
+                  label='Nuevo email'
+                  {...(emailExists ? { errors: emailError } : {})} // Pasamos los errores cuando intentamos ir al siguiente paso
+                  {...(errors.email ? { errors: errors.email } : {})} // Pasamos los errores cuando intentamos ir al siguiente paso
+                  {...register('email', {
+                    onBlur: handleEmailBlur,
+                    onChange: () => setEmailExists(false) // Borra el error al cambiar el valor
+                  })}
+                />
+
+                <div className='flex items-center p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300' role='alert'>
+                  <svg className='shrink-0 inline w-4 h-4 me-3' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 20 20'>
+                    <path d='M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z' />
+                  </svg>
+                  <span className='sr-only'>Info</span>
+                  <div>
+                    Se enviará un correo al nuevo email para verificarlo.
+                  </div>
                 </div>
               </div>
 
-              <div className='flex justify-end mt-8'>
+              <div className='flex justify-end mt-2'>
                 <div className='w-auto flex flex-row gap-x-3'>
                   <button onClick={() => { setShowEditCredentialsModal(false) }} className='text-primary hover:text-primary-hover hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-primary-dark hover:dark:text-primary-hover-dark shadow-[inset_0_0_0_2px_theme(colors.primary)] hover:shadow-[inset_0_0_0_2px_theme(colors.primary-hover)] dark:shadow-[inset_0_0_0_2px_theme(colors.primary-dark)] dark:hover:shadow-[inset_0_0_0_2px_theme(colors.primary-hover-dark)] font-medium rounded-lg text-md w-full px-5 py-2.5 text-center'>
                     Cancelar
@@ -234,28 +237,31 @@ export default function ModalEditCredentials ({ setShowEditCredentialsModal, use
           )}
 
           {index === 3 && (
-            <form className='flex-1 flex flex-col justify-between' autoComplete='off' onSubmit={handleSubmit(endUptadePassword)}>
-              <TextInput
-                type='password'
-                autoComplete='off'
-                id='password'
-                htmlFor='password'
-                label='Nueva contraseña'
-                {...(errors.password ? { errors: errors.password } : {})} // Pasamos los errores cuando intentamos ir al siguiente paso
-                {...register('password')}
-              />
+            <form className='overflow-y-auto pt-2 flex-1 flex flex-col justify-between' autoComplete='off' onSubmit={handleSubmit(endUptadePassword)}>
 
-              <TextInput
-                type='password'
-                id='confirmPassword'
-                autoComplete='off'
-                htmlFor='confirmPassword'
-                label='Confirmar nueva contraseña'
-                {...(errors.confirmPassword ? { errors: errors.confirmPassword } : {})} // Pasamos los errores cuando intentamos ir al siguiente paso
-                {...register('confirmPassword')}
-              />
+              <div className=''>
+                <TextInput
+                  type='password'
+                  autoComplete='off'
+                  id='password'
+                  htmlFor='password'
+                  label='Nueva contraseña'
+                  {...(errors.password ? { errors: errors.password } : {})} // Pasamos los errores cuando intentamos ir al siguiente paso
+                  {...register('password')}
+                />
 
-              <div className='flex justify-end mt-8'>
+                <TextInput
+                  type='password'
+                  id='confirmPassword'
+                  autoComplete='off'
+                  htmlFor='confirmPassword'
+                  label='Confirmar nueva contraseña'
+                  {...(errors.confirmPassword ? { errors: errors.confirmPassword } : {})} // Pasamos los errores cuando intentamos ir al siguiente paso
+                  {...register('confirmPassword')}
+                />
+              </div>
+
+              <div className='flex justify-end mt-2'>
                 <div className='w-auto flex flex-row gap-x-3'>
                   <button onClick={() => { setShowEditCredentialsModal(false) }} className='text-primary hover:text-primary-hover hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-primary-dark hover:dark:text-primary-hover-dark shadow-[inset_0_0_0_2px_theme(colors.primary)] hover:shadow-[inset_0_0_0_2px_theme(colors.primary-hover)] dark:shadow-[inset_0_0_0_2px_theme(colors.primary-dark)] dark:hover:shadow-[inset_0_0_0_2px_theme(colors.primary-hover-dark)] font-medium rounded-lg text-md w-full px-5 py-2.5 text-center'>
                     Cancelar
@@ -267,25 +273,26 @@ export default function ModalEditCredentials ({ setShowEditCredentialsModal, use
           )}
 
           {index === 4 && (
-            <div className='flex-1 flex flex-col justify-between'>
-              <p className='text-center text-lg'>¿Seguro que quieres eliminar tu cuenta?</p>
+            <div className='overflow-y-auto flex-1 flex flex-col justify-between'>
+              <div className='flex flex-col gap-4'>
+                <p className='text-center text-lg'>¿Seguro que quieres eliminar tu cuenta?</p>
+                <Button
+                  className='text-white font-semibold dark:text-black bg-red-600 hover:bg-red-700 dark:bg-red-400 dark:hover:bg-red-500 rounded-lg text-md w-full px-5 py-2.5 text-center'
+                  onClick={deleteAccount} text='Si, eliminar cuenta'
+                />
 
-              <Button
-                className='text-white font-semibold dark:text-black bg-red-600 hover:bg-red-700 dark:bg-red-400 dark:hover:bg-red-500 rounded-lg text-md w-full px-5 py-2.5 text-center'
-                onClick={deleteAccount} text='Si, eliminar cuenta'
-              />
-
-              <div className='flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400' role='alert'>
-                <svg className='shrink-0 inline w-4 h-4 me-3' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 20 20'>
-                  <path d='M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z' />
-                </svg>
-                <span className='sr-only'>Info</span>
-                <div>
-                  No podrás recuperar tu cuenta después de eliminarla.
+                <div className='flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400' role='alert'>
+                  <svg className='shrink-0 inline w-4 h-4 me-3' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 20 20'>
+                    <path d='M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z' />
+                  </svg>
+                  <span className='sr-only'>Info</span>
+                  <div>
+                    No podrás recuperar tu cuenta después de eliminarla.
+                  </div>
                 </div>
               </div>
 
-              <div className='flex justify-end mt-8'>
+              <div className='flex justify-end mt-2'>
                 <div className='w-auto flex flex-row gap-x-3'>
                   <button onClick={() => { setShowEditCredentialsModal(false) }} className='text-primary hover:text-primary-hover hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-primary-dark hover:dark:text-primary-hover-dark shadow-[inset_0_0_0_2px_theme(colors.primary)] hover:shadow-[inset_0_0_0_2px_theme(colors.primary-hover)] dark:shadow-[inset_0_0_0_2px_theme(colors.primary-dark)] dark:hover:shadow-[inset_0_0_0_2px_theme(colors.primary-hover-dark)] font-medium rounded-lg text-md w-full px-5 py-2.5 text-center'>
                     Cancelar

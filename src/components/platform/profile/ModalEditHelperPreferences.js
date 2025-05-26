@@ -74,16 +74,16 @@ export default function ModalEditHelperPreferences ({ setShowEditHelperPreferenc
 
   return (
     <div
-      className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center  max-h-full inset-0 bg-gray-900 bg-opacity-50 overflow-y-auto'
+      className='fixed top-0 right-0 left-0 z-50 flex justify-center w-full items-center  max-h-full inset-0 bg-gray-900 bg-opacity-50'
       onClick={() =>
         setShowEditHelperPreferencesModal(false)}
     >
       <div
-        className='lg:ml-64 w-full max-w-2xl max-h-screen'
+        className='lg:ml-64 w-full max-w-2xl'
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className='max-h-[85vh] overflow-auto  m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
+          className='overflow-y-auto max-h-[85vh] m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
         >
           {/* Botón para cerrar */}
           <div className='flex justify-end'>
@@ -101,11 +101,11 @@ export default function ModalEditHelperPreferences ({ setShowEditHelperPreferenc
           </div>
 
           {/* Contenido principal del modal */}
-          <div className='mb-6 flex justify-center gap-x-2 items-center text-xl text-primary dark:text-primary-dark font-semibold'>
+          <div className='mb-2 flex justify-center gap-x-2 items-center text-xl text-primary dark:text-primary-dark font-semibold'>
             <Icon />
-            <h2>Edita tus preferencias de asistente</h2>
+            <h2 className='text-base lg:text-lg'>Edita tus preferencias de asistente</h2>
           </div>
-          <form onSubmit={handleSubmit(endUptade)}>
+          <form className='overflow-y-auto' onSubmit={handleSubmit(endUptade)}>
             <CheckboxGroupInput
               bg
               label='¿Tienes alguna preferencia respecto a la edad del asistente?'
@@ -122,7 +122,7 @@ export default function ModalEditHelperPreferences ({ setShowEditHelperPreferenc
               {...register('genderPreference')}
             />
 
-            <div className='flex justify-end mt-8'>
+            <div className='flex justify-end mt-2'>
               <div className='w-auto flex flex-row gap-x-3'>
                 <button onClick={() => { setShowEditHelperPreferencesModal(false) }} className='text-primary hover:text-primary-hover hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-primary-dark hover:dark:text-primary-hover-dark shadow-[inset_0_0_0_2px_theme(colors.primary)] hover:shadow-[inset_0_0_0_2px_theme(colors.primary-hover)] dark:shadow-[inset_0_0_0_2px_theme(colors.primary-dark)] dark:hover:shadow-[inset_0_0_0_2px_theme(colors.primary-hover-dark)] font-medium rounded-lg text-md w-full px-5 py-2.5 text-center'>
                   Cancelar
