@@ -1,7 +1,7 @@
 'use server'
 export default async function ContactoPage () {
   return (
-    <section className='py-16 h-full'>
+    <section className='pb-12 h-full'>
       <div className='max-w-7xl mx-auto px-6 lg:px-8'>
         {/* Información de contacto */}
         <section className='bg-white shadow-md rounded-lg p-6 dark:bg-gray-800'>

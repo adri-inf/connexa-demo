@@ -1,10 +1,10 @@
 'use server'
 export default async function FinanciacionPage () {
   return (
-    <section className='py-16 h-full mx-auto max-w-4xl'>
+    <section className='py-6 h-full mx-auto max-w-4xl'>
       <div className='max-w-7xl mx-auto px-6 lg:px-8'>
 
-        <header className='text-center'>
+        <header className='lg:text-center'>
           <h1 className='text-4xl font-extrabold text-gray-900 sm:text-5xl dark:text-gray-100'>
             ¿Cómo se puede financiar la Asistencia Personal?
           </h1>

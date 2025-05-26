@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default async function DescubreConnexaPage () {
   return (
-    <section className='py-12 h-full'>
+    <section className='py-6 h-full'>
       <div className='max-w-7xl mx-auto px-6 lg:px-8'>
         {/* Sección de Introducción con imagen */}
         <section className='flex flex-col md:flex-row items-center gap-10'>

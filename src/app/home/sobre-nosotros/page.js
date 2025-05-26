@@ -1,18 +1,20 @@
 'use server'
 export default async function SobreNosotrosPage () {
   return (
-    <section className='py-12 h-full'>
+    <section className='py-6 h-full'>
       <div className='max-w-7xl mx-auto px-6 lg:px-8'>
-        <header className='text-center'>
-          <h1 className='text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl dark:text-gray-100'>
+        <header>
+          <h1 className='text-4xl max-w-6xl mx-auto lg:text-center font-extrabold tracking-tight text-gray-900 sm:text-5xl dark:text-gray-100'>
             Federación Autismo Castilla-La Mancha
           </h1>
-          <p className='mt-4 text-lg leading-7 text-gray-600 dark:text-gray-300'>
-            La Federación Autismo Castilla-La Mancha es una organización sin ánimo de lucro.
-          </p>
-          <p className='text-lg leading-7 text-gray-600 dark:text-gray-300'>
-            Trabaja por los derechos y la calidad de vida de las personas con autismo (TEA) y sus familias.
-          </p>
+          <div className='max-w-4xl mx-auto'>
+            <p className='mt-4 text-lg leading-7 text-gray-600 dark:text-gray-300'>
+              La Federación Autismo Castilla-La Mancha es una organización sin ánimo de lucro.
+            </p>
+            <p className='text-lg leading-7 text-gray-600 dark:text-gray-300'>
+              Trabaja por los derechos y la calidad de vida de las personas con autismo (TEA) y sus familias.
+            </p>
+          </div>
         </header>
 
         <section className='mt-10 md:mt-20  grid grid-cols-1 md:grid-cols-2 gap-8'>
