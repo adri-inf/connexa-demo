@@ -7,9 +7,43 @@ export default function RequestCard ({ id, firstName, lastName, profilePicture, 
 
   return (
     <div className='flex items-center xm:items-stretch flex-col w-full relative'>
-      <div className='flex flex-col xm:flex-row gap-x-8'>
+      <div className='flex gap-2 justify-end w-full'>
+        {/* Iconos */}
+        {type === 'chat' && (
+          <button
+            className='text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-500 rounded-full p-1'
+            onClick={() => { router.push(`/app/platform/chats?userId=${id}`) }}
+          >
+            <IconChat />
+          </button>
+        )}
 
-        <div className='mx-auto relative h-20 w-20 sm:h-24 sm:w-24 flex items-center justify-center'>
+        {type === 'phone' && phone && (
+          <button
+            className='text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-500 rounded-full p-1'
+          >
+            <a
+              href={`tel:${phone}`}
+              target='_blank' rel='noopener noreferrer'
+            ><IconPhone />
+            </a>
+          </button>
+        )}
+
+        {type === 'email' && email && (
+          <button
+            className='text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-500 rounded-full p-1'
+            onClick={(e) => {
+              e.preventDefault() // Evita la navegación estándar
+              window.open(`mailto:${email}`)
+            }}
+          >
+            <IconMail />
+          </button>
+        )}
+      </div>
+      <div className='flex flex-col xm:flex-row gap-x-8 gap-y-3 items-center'>
+        <div className='mx-auto relative w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center'>
           <img
             className='mx-auto rounded-full hover:scale-105 hover:cursor-pointer'
             src={generateImgSrc(profilePicture)} alt='user image'
@@ -61,42 +95,6 @@ export default function RequestCard ({ id, firstName, lastName, profilePicture, 
             <p>
               <strong>Teléfono: </strong> {phone}
             </p>
-          )}
-        </div>
-
-        <div className='absolute top-0 right-0 flex gap-2'>
-          {/* Iconos */}
-          {type === 'chat' && (
-            <button
-              className='text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-500 rounded-full p-1'
-              onClick={() => { router.push(`/app/platform/chats?userId=${id}`) }}
-            >
-              <IconChat />
-            </button>
-          )}
-
-          {type === 'phone' && phone && (
-            <button
-              className='text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-500 rounded-full p-1'
-            >
-              <a
-                href={`tel:${phone}`}
-                target='_blank' rel='noopener noreferrer'
-              ><IconPhone />
-              </a>
-            </button>
-          )}
-
-          {type === 'email' && email && (
-            <button
-              className='text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-500 rounded-full p-1'
-              onClick={(e) => {
-                e.preventDefault() // Evita la navegación estándar
-                window.open(`mailto:${email}`)
-              }}
-            >
-              <IconMail />
-            </button>
           )}
         </div>
       </div>

@@ -77,7 +77,7 @@ export default function ChatUsersList ({ chats, role, isUserSelected }) {
       {/* Lista dinámica de chats */}
       <div
         className='flex flex-col gap-y-2 overflow-y-auto'
-        style={{ maxHeight: 'calc(100vh - 250px)' }} // Ajuste dinámico de altura
+        style={{ maxHeight: 'calc(100dvh - 250px)' }} // Ajuste dinámico de altura
       >
 
         {filteredChats.length > 0 && (

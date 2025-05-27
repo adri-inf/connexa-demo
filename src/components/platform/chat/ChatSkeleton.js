@@ -7,7 +7,7 @@ export default function ChatSkeleton ({ isUserSelected }) {
   return (
     <div
       className='p-4 dark:text-white w-full sm:shadow-md sm:max-w-6xl mx-auto bg-white flex flex-row gap-x-4 sm:rounded-xl border-t sm:dark:border dark:bg-gray-800 sm:border dark:border-gray-700'
-      style={{ height: 'calc(100vh - 100px)' }}
+      style={{ height: 'calc(100dvh - 100px)' }}
     >
       {/* Esqueleto de la lista */}
       <div className={`${isUserSelected ? 'hidden lg:block' : 'block'} w-1/2 flex-1 flex flex-col rounded-lg`}>
@@ -31,7 +31,7 @@ export default function ChatSkeleton ({ isUserSelected }) {
         </div>
 
         {/* Lista de chats con esqueleto de carga */}
-        <div className='pt-3 flex flex-col gap-y-2 overflow-y-auto' style={{ maxHeight: 'calc(100vh - 250px)' }}>
+        <div className='pt-3 flex flex-col gap-y-2 overflow-y-auto' style={{ maxHeight: 'calc(100dvh - 250px)' }}>
           {[1, 2, 3, 4].map((_, index) => (
             <div key={index} className='flex flex-row gap-x-4 items-center p-2 text-gray-900 rounded-lg dark:border dark:border-gray-600 bg-gray-50 dark:bg-gray-800 dark:text-white hover:bg-gray-200'>
               <div className='animate-pulse'>

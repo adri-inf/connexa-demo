@@ -1,43 +1,47 @@
-/**
- * Esqueleto de la página search
- */
 export default function SearchSkeleton () {
   return (
-    <>
-      <div className='p-4 dark:text-white w-full sm:shadow-md sm:max-w-6xl mx-auto bg-white pt-4 lg:p-12 lg:pt-8 sm:rounded-xl flex flex-col border-t sm:dark:border dark:bg-gray-800 sm:border dark:border-gray-700'>
-        {/* Contenedor de la barra de búsqueda y las cards */}
-        <div className='flex flex-col gap-8'>
-          {/* Esqueleto de la barra de búsqueda */}
-          <div className='flex justify-center'>
-            <form className='flex-1 max-w-lg'>
-              <div className='relative'>
-                <input
-                  type='search'
-                  id='default-search'
-                  className='block w-full p-4 text-sm text-transparent border border-gray-300 rounded-lg bg-gray-50 animate-pulse dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-transparent'
-                  placeholder='Buscar...'
-                  disabled
-                />
-              </div>
-            </form>
-          </div>
+    <div id='partContainer' className='p-4 dark:text-white w-full sm:shadow-md sm:max-w-6xl mx-auto bg-white pt-4 lg:p-10 lg:pt-6 sm:rounded-xl flex flex-col border-t sm:dark:border dark:bg-gray-800 sm:border dark:border-gray-700'>
 
-          {/* Esqueleto de las cards */}
-          <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-6'>
-            {Array.from({ length: 9 }).map((_, index) => (
-              <div
-                key={index}
-                className='flex flex-col p-4 bg-gray-200 dark:bg-gray-700 rounded-lg shadow-lg animate-pulse'
-              >
-                <div className='w-full h-36 bg-gray-300 dark:bg-gray-600 animate-pulse rounded-lg mb-4' />
-                <div className='w-32 h-4 bg-gray-300 dark:bg-gray-600 animate-pulse rounded-full mb-2' />
-                <div className='w-24 h-4 bg-gray-300 dark:bg-gray-600 animate-pulse rounded-full mb-2' />
-                <div className='w-28 h-4 bg-gray-300 dark:bg-gray-600 animate-pulse rounded-full' />
-              </div>
-            ))}
+      {/* Search bar y botón de favoritos */}
+      <div className='flex flex-row space-x-3 justify-center'>
+        {/* Search input */}
+        <div className='flex-1 max-w-lg flex justify-center'>
+          <div className='w-full animate-pulse'>
+            <div className='relative'>
+              <input
+                type='search'
+                disabled
+                className='block w-full p-4 ps-10 text-sm text-transparent border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-transparent'
+              />
+            </div>
           </div>
         </div>
+
+        {/* Botón favorito */}
+        <div className='p-3 aspect-square flex items-center justify-center bg-gray-200 dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg animate-pulse' />
       </div>
-    </>
+
+      {/* Grid de helpers */}
+      <div className='my-8 grid grid-cols-1 [@media(min-width:420px)]:grid-cols-2 [@media(min-width:700px)]:grid-cols-3 gap-4'>
+        {Array.from({ length: 9 }).map((_, i) => (
+          <div key={i} className='p-5 bg-gray-200 dark:bg-gray-700 rounded-lg shadow animate-pulse flex flex-col items-center'>
+            {/* Avatar */}
+            <div className='mt-10 mx-auto w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center'>
+              <div className='w-full h-full rounded-md bg-gray-300 dark:bg-gray-600' />
+            </div>
+
+            {/* Nombre */}
+            <div className='w-32 h-5 mt-4 bg-gray-300 dark:bg-gray-600 rounded-full' />
+
+            {/* Ubicación */}
+            <div className='w-32 h-4 mt-2 bg-gray-300 dark:bg-gray-600 rounded-full' />
+
+            {/* Compatibilidad */}
+            <div className='w-20 h-4 mt-2 bg-gray-300 dark:bg-gray-600 rounded-full' />
+            <div className='w-24 h-8 mt-2' />
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }

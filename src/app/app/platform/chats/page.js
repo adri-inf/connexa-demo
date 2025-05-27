@@ -139,7 +139,7 @@ export default function ChatsPage () {
       {!loading && (
         <div
           className='p-4 dark:text-white w-full sm:shadow-md sm:max-w-6xl mx-auto bg-white flex flex-row gap-x-4 sm:rounded-xl border-t sm:dark:border dark:bg-gray-800 sm:border dark:border-gray-700'
-          style={{ height: 'calc(100vh - 100px)' }}
+          style={{ height: 'calc(100dvh - 100px)' }}
         >
 
           <>

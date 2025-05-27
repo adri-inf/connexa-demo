@@ -37,7 +37,7 @@ export default function PlatformLeftMenu () {
         ${openSidebar ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}
         aria-label='Sidebar'
       >
-        <div className='h-full flex flex-col justify-between px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-900'>
+        <div className='h-[calc(100dvh-80px)] flex flex-col justify-between px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-900'>
           {role && (
             <>
               <ul className='space-y-2 font-medium'>
@@ -81,7 +81,7 @@ export default function PlatformLeftMenu () {
       </aside>
 
       <div
-        className={`bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-30 ${openSidebar ? 'visible' : 'hidden'}`}
+        className={`bg-gray-900/50 h-screen dark:bg-gray-900/80 fixed inset-0 z-30 ${openSidebar ? 'visible' : 'hidden'}`}
         onClick={() => setOpenSidebar(false)}
       />
 
