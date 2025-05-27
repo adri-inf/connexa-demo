@@ -18,7 +18,7 @@ export default function SearchSkeleton () {
         </div>
 
         {/* Botón favorito */}
-        <div className='p-3 aspect-square flex items-center justify-center bg-gray-200 dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg animate-pulse' />
+        <div className='p-3 h-[54px] w-[54px] aspect-square flex items-center justify-center bg-gray-200 dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg animate-pulse' />
       </div>
 
       {/* Grid de helpers */}
