@@ -145,7 +145,7 @@ export default function ModalContact ({ setShowContactModal, userId, firstName, 
   return (
     <>
       <div
-        className='fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full  max-h-full inset-0 bg-gray-900 bg-opacity-50'
+        className='fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full max-h-[100dvh] inset-0 bg-gray-900 bg-opacity-50'
         onClick={() =>
           setShowContactModal(false)}
       >
