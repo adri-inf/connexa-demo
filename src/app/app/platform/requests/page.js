@@ -49,7 +49,7 @@ export default function RequestsContent () {
 
         const userId = getIdFromCookieClient() // Id del propio usuario
         // Hacer fetch a la API para obtener los resultados de búsqueda con los parámetros de la URL.
-        const responseRequests = await requestService.getAllUserRequests(userId, null, page, pageLimit, fullName)
+        const responseRequests = await requestService.getAllUserRequests(userId, null, page, pageLimit, fullName, role)
 
         setRequests(responseRequests.data.requests)
 
@@ -65,7 +65,7 @@ export default function RequestsContent () {
     }
 
     fetchRequests() // Ejecuta la función para obtener los usuarios desde el backend
-  }, [page, fullName]) // Dependencias: se vuelve a ejecutar cuando cambia la página o el nombre
+  }, [page, fullName, role]) // Dependencias: se vuelve a ejecutar cuando cambia la página o el nombre
 
   // Función para manejar el clic en el botón de búsqueda y actualizar los parámetros de la URL
   const handleSearchClick = (name) => {

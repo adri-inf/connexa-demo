@@ -75,7 +75,7 @@ export default function ModalEditSchedule ({ setShowEditScheduleModal, Icon, for
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className='overflow-y-auto max-h-[85vh] m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
+          className='overflow-y-auto max-h-[85dvh] m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
         >
           {/* Botón para cerrar */}
           <div className='flex justify-end'>

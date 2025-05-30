@@ -38,7 +38,7 @@ export default function ModalHelp ({ setShowHelpModal, Part }) {
         <DefaultBackground />
 
         <div
-          className='max-h-[85vh]  max-w-2xl flex flex-col h-[95vh] overflow-hidden shadow-lg relative w-full lg:m-4 p-4 lg:p-8 bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white border border-gray-100 dark:border-gray-700'
+          className='max-h-[85dvh]  max-w-2xl flex flex-col h-[95dvh] overflow-hidden shadow-lg relative w-full lg:m-4 p-4 lg:p-8 bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white border border-gray-100 dark:border-gray-700'
           onClick={(e) => e.stopPropagation()}
         >
           <div className='flex justify-between mb-4 items-center'>

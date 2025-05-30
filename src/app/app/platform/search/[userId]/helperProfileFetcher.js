@@ -19,7 +19,7 @@ export default async function HelperProfileFetcher ({ userId }) {
     return (
       <>
         {/* Contenido del perfil. Componente client side. */}
-        <HelperProfileContent userData={user.data} formData={user.data.form} />
+        <HelperProfileContent fetchData userData={user.data} formData={user.data.form} />
       </>
     )
   } catch (error) {

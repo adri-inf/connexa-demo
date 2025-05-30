@@ -7,8 +7,7 @@ import Link from 'next/link'
 import DangerAlert from '../../form/DangerAlert'
 import PartContainer from '../PartContainer'
 
-// Si own es true, es que se está visualizando el propio perfil. Si no, un regular está viendo el perfil de un helper
-export default function ProfilePartImage ({ user, imgSrc, incomplete, setShowProfilePictureModal }) {
+export default function ProfilePartImage ({ user, imgSrc, incomplete, setShowProfilePictureModal, setShowEditAvailableModal }) {
   return (
     <PartContainer>
       {
@@ -47,6 +46,16 @@ export default function ProfilePartImage ({ user, imgSrc, incomplete, setShowPro
           </span>
           {/* Si es perfil propio, se muestra email */}
           <span className='text-base font-semibold mt-0'>{user.email}</span>
+          {user.role === 'helper' && (
+            <div className='mt-4'>
+              <button
+                className={`py-2 px-4 text-base sm:text-lg font-medium focus:outline-none  rounded-lg border ${user.helperInfo.available ? 'bg-green-100 text-green-800 border-green-800 dark:bg-green-200 dark:text-green-900 dark:border-green-900 hover:bg-green-200 dark:hover:bg-green-300' : 'bg-red-100 text-red-800 border-red-800 dark:bg-red-200 dark:text-red-900 dark:border-red-900 hover:bg-red-200 dark:hover:bg-red-300'} `}
+                onClick={() => { setShowEditAvailableModal(true) }}
+              >
+                {user.helperInfo.available ? 'Disponible' : 'No disponible'}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </PartContainer>

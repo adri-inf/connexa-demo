@@ -27,7 +27,7 @@ export default function SearchSkeleton () {
           <div key={i} className='p-5 bg-gray-200 dark:bg-gray-700 rounded-lg shadow animate-pulse flex flex-col items-center'>
             {/* Avatar */}
             <div className='mt-10 mx-auto w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center'>
-              <div className='w-full h-full rounded-md bg-gray-300 dark:bg-gray-600' />
+              <div className='w-full h-full rounded-full bg-gray-300 dark:bg-gray-600' />
             </div>
 
             {/* Nombre */}

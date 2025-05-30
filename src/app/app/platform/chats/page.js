@@ -24,9 +24,9 @@ export default function ChatsPage () {
         createdAt: '2025-05-18T15:09:14.000Z',
         updatedAt: '2025-05-18T17:09:18.000Z',
         regularUser: {
-          firstName: 'Sofía',
-          lastName: 'Moreno',
-          profilePicture: 'uploads/profilePictures/22.webp',
+          firstName: 'Isabel',
+          lastName: 'Jiménez',
+          profilePicture: '2.webp',
           id: '00161b06-cbd0-454a-8f9f-250ceef0cc9c'
         },
         helperUser: {
@@ -36,7 +36,7 @@ export default function ChatsPage () {
           id: 'bdcaf3e1-e8be-45d1-8220-5e3bc4515dd6'
         },
         lastMessage: {
-          content: 'Me cuesta organizarme.'
+          content: 'Necesito ayuda para las tareas domésticas.'
         },
         unreadMessages: 0
       },
@@ -47,9 +47,9 @@ export default function ChatsPage () {
         createdAt: '2025-05-15T10:33:22.000Z',
         updatedAt: '2025-05-18T17:09:04.000Z',
         regularUser: {
-          firstName: 'Sofía',
-          lastName: 'Moreno',
-          profilePicture: 'uploads/profilePictures/22.webp',
+          firstName: 'Alfonso',
+          lastName: 'Poveda',
+          profilePicture: '1.webp',
           id: '00161b06-cbd0-454a-8f9f-250ceef0cc9c'
         },
         helperUser: {

@@ -3,6 +3,5 @@ export const generateImgSrc = (profilePicture) => {
   const imageUrl = (profilePicture)
     ? `/user-photos/${profilePicture}`
     : '/userimg.webp'
-
   return imageUrl
 }

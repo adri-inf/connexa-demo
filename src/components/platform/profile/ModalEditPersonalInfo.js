@@ -28,6 +28,7 @@ export default function ModalEditPersonalInfo ({ setShowEditPersonalInfoModal, u
 
   // Solo se envían los datos que han sido modificados
   const endUptade = async (data) => {
+    console.log(user)
     // Comparar los datos originales (user) con los datos modificados (data)
     const modifiedFields = Object.entries(data).reduce((acc, [key, value]) => {
     // Agregar al objeto solo los campos que hayan cambiado
@@ -44,10 +45,21 @@ export default function ModalEditPersonalInfo ({ setShowEditPersonalInfoModal, u
     } else {
       // Aquí puedes realizar la petición al servidor con los campos modificados
       if (modifiedFields.gender) {
-        modifiedFields.helperInfo = {} // Inicializamos helperInfo
-        modifiedFields.helperInfo.gender = modifiedFields.gender
-        delete modifiedFields.gender
+        if (modifiedFields.gender !== user.helperInfo.gender) {
+          modifiedFields.helperInfo = {} // Inicializamos helperInfo
+          modifiedFields.helperInfo.gender = modifiedFields.gender
+          delete modifiedFields.gender
+        } else {
+          delete modifiedFields.gender
+        }
       }
+
+      if (Object.keys(modifiedFields).length === 0) {
+        notify('No se ha modificado nada.', 'info')
+        setShowEditPersonalInfoModal(false)
+        return
+      }
+
       // Enviamos datos al backend
       try {
         await userService.sendUpdatedUser(userId, modifiedFields)
@@ -71,7 +83,7 @@ export default function ModalEditPersonalInfo ({ setShowEditPersonalInfoModal, u
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className='overflow-y-auto max-h-[85vh] m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
+          className='overflow-y-auto max-h-[85dvh] m-2 lg:m-4 p-4 lg:p-8 flex flex-col shadow bg-white rounded-lg dark:bg-gray-800 text-black dark:text-white relative dark:border border-gray-700'
         >
           {/* Botón para cerrar */}
           <div className='flex justify-end'>

@@ -19,12 +19,14 @@ export function HelpButton () {
 
   // 👇 useEffect para bloquear/desbloquear el scroll del body
   useEffect(() => {
+    const helpButton = document.getElementById('help-button')
+
     if (showHelpModal) {
       document.body.classList.add('overflow-hidden')
-      document.getElementById('help-button').style.visibility = 'hidden'
+      if (helpButton) helpButton.style.visibility = 'hidden'
     } else {
       document.body.classList.remove('overflow-hidden')
-      document.getElementById('help-button').style.visibility = 'visible'
+      if (helpButton) helpButton.style.visibility = 'visible'
     }
   }, [showHelpModal])
 

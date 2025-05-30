@@ -8,6 +8,7 @@ import ChatMessages from './ChatMessages'
 import MessagesSkeleton from './MessagesSkeleton'
 import Link from 'next/link'
 import { useNotification } from '@/context/notification'
+import { getRoleFromCookieClient } from '@/utils/sessionClient'
 
 export default function ChatContainer ({ isUserSelected, actualChat, actualUser, ownUserId }) {
   const [loading, setLoading] = useState(false) // Estado de carga
@@ -35,7 +36,8 @@ export default function ChatContainer ({ isUserSelected, actualChat, actualUser,
       if (isUserSelected && !actualChat.messages && actualChat.id) {
         try {
           setLoading(true)
-          const { data } = await chatService.getChatMessages(ownUserId, actualChat.id)
+          const role = getRoleFromCookieClient()
+          const { data } = await chatService.getChatMessages(ownUserId, actualChat.id, role)
           setMessages(data.messages)
           actualChat.messages = data.messages // Actualizar los mensajes del chat actual
           setLoading(false)

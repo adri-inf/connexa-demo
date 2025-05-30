@@ -32,13 +32,13 @@ export default function AuthPage () {
   })
 
   // Lo que ocurre al finalizar login
-  const endLogin = async (data) => {
+  const endLogin = async (profilePicture, role) => {
     // Enviamos datos al backend
     try {
-      const result = await authService.sendLogin(data)
+      const result = await authService.sendLogin()
 
       if (result.success) {
-        handleLogIn(result.data.profilePicture, result.data.role)
+        handleLogIn(profilePicture, role)
         router.push('/app')
       } else if (!result.success) {
         notify('Credenciales inválidas', 'error')
@@ -55,12 +55,14 @@ export default function AuthPage () {
       {/* Logo corportándose como enlace (isLink === true) */}
       <LogoHeader isLink />
       {/* Formulario de inicio de sesión */}
-      <form className='mt-8' onSubmit={handleSubmit(endLogin)}>
+      <div className='mt-8' onSubmit={handleSubmit(endLogin)}>
         <TextInput
           type='email'
           id='email'
           htmlFor='email'
           label='Email'
+          disabled
+          value='usuario@ejemplo.com'
           errors={errors.email}
           {...register('email')}
         />
@@ -69,13 +71,18 @@ export default function AuthPage () {
           type='password'
           id='password'
           htmlFor='password'
+          disabled
+          value='contraseñadeejemplo'
           label='Contraseña'
           errors={errors.password}
           {...register('password')}
         />
 
-        <Button type='submit' text='Iniciar sesión' />
-      </form>
+        <div className='flex gap-y-4 flex-col'>
+          <Button onClick={() => { endLogin('2.webp', 'regular') }} text='Iniciar demo como usuario' />
+          <Button onClick={() => { endLogin('7.webp', 'helper') }} text='Iniciar demo como asistente personal' />
+        </div>
+      </div>
 
       <hr className='mt-10 w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700' />
 

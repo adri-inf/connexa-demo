@@ -24,12 +24,14 @@ export default function ProfileContent ({ userId, userData, formData, fetchData 
 
   // 👇 useEffect para bloquear/desbloquear el scroll del body
   useEffect(() => {
+    const helpButton = document.getElementById('help-button')
+
     if (showContactModal) {
       document.body.classList.add('overflow-hidden')
-      document.getElementById('help-button').style.visibility = 'hidden'
+      if (helpButton) helpButton.style.visibility = 'hidden'
     } else {
       document.body.classList.remove('overflow-hidden')
-      document.getElementById('help-button').style.visibility = 'visible'
+      if (helpButton) helpButton.style.visibility = 'visible'
     }
   }, [showContactModal])
 
@@ -50,9 +52,9 @@ export default function ProfileContent ({ userId, userData, formData, fetchData 
         loadingTimeout = setTimeout(() => {
           setLoading(true)
         }, 100)
-
+        const role = getRoleFromCookieClient()
         // Hacer fetch a la API para obtener los resultados de búsqueda con los parámetros de la URL.
-        const user = await userService.getUser(true)
+        const user = await userService.getUser(true, role)
         setUser(user.data)
         setForm(user.data.form)
 

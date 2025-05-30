@@ -17,6 +17,8 @@ import { generateImgSrc } from '@/utils/profilePictures'
 import ModalEditLocation from '@/components/platform/profile/ModalEditLocation'
 import ModalEditCredentials from '@/components/platform/profile/ModalEditCredentials'
 import ModalProfilePicture from '@/components/platform/profile/ModalProfilePicture'
+import { getRoleFromCookieClient } from '@/utils/sessionClient'
+import ModalEditAvailability from '@/components/platform/profile/ModalEditAvailability'
 
 // fetchData es una variable boolean que nos indicará si debemos hacer el fetching de datos o no, según si ha habido un error
 // al hacerlo en el server side. Esto es porque desde el server side no podemos actualizar el accessToken en caso de 401.
@@ -37,6 +39,7 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
   const [showEditHelperPreferencesModal, setShowEditHelperPreferencesModal] = useState(false)
   const [showEditTasksModal, setShowEditTasksModal] = useState(false)
   const [showProfilePictureModal, setShowProfilePictureModal] = useState(false)
+  const [showEditAvailableModal, setShowEditAvailableModal] = useState(false)
 
   // Obtenemos la imagen del localStorage (Se crea al cambiar foto de perfil y al iniciar sesión)
   // Null hay que tratarlo como cadena, porque está en localStorage
@@ -55,6 +58,7 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
 
   // 👇 useEffect para bloquear/desbloquear el scroll del body
   useEffect(() => {
+    const helpButton = document.getElementById('help-button')
     const anyModalOpen =
       showEditCredentialsModal ||
       showEditPersonalInfoModal ||
@@ -63,14 +67,15 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
       showEditScheduleModal ||
       showEditHelperPreferencesModal ||
       showEditTasksModal ||
-      showProfilePictureModal
+      showProfilePictureModal ||
+      showEditAvailableModal
 
     if (anyModalOpen) {
       document.body.classList.add('overflow-hidden')
-      document.getElementById('help-button').style.visibility = 'hidden'
+      if (helpButton) helpButton.style.visibility = 'hidden'
     } else {
       document.body.classList.remove('overflow-hidden')
-      document.getElementById('help-button').style.visibility = 'visible'
+      if (helpButton) helpButton.style.visibility = 'visible'
     }
   }, [
     showEditCredentialsModal,
@@ -80,7 +85,8 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
     showEditScheduleModal,
     showEditHelperPreferencesModal,
     showEditTasksModal,
-    showProfilePictureModal
+    showProfilePictureModal,
+    showEditAvailableModal
   ])
 
   // Se utilizará si hay que hacer el fetch de datos en el client side
@@ -95,9 +101,9 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
         loadingTimeout = setTimeout(() => {
           setLoading(true)
         }, 100)
-
+        const role = getRoleFromCookieClient()
         // Hacer fetch a la API para obtener los resultados de búsqueda con los parámetros de la URL.
-        const user = await userService.getUser(false)
+        const user = await userService.getUser(false, role)
         setUser(user.data)
         setForm(user.data.form)
         if (user.data.form) { setIncomplete(false) } else { setIncomplete(true) } // Manejamos estado incompleto
@@ -112,7 +118,7 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
     }
 
     fetchUsers() // Ejecuta la función para obtener los usuarios desde el backend
-  }, [fetchData, userId]) // Dependencias: se vuelve a ejecutar cuando cambia la página o el nombre
+  }, [fetchData, userId, role]) // Dependencias: se vuelve a ejecutar cuando cambia la página o el nombre
 
   return (
     <>
@@ -122,7 +128,9 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
       {!loading && (
         <>
           {/* Nombre e imagen */}
-          <ProfilePartImage own user={user} incomplete={incomplete} imgSrc={imageUrl} setShowProfilePictureModal={setShowProfilePictureModal} />
+          <ProfilePartImage setShowEditAvailableModal={setShowEditAvailableModal} own user={user} incomplete={incomplete} imgSrc={imageUrl} setShowProfilePictureModal={setShowProfilePictureModal} />
+          {showEditAvailableModal && (<ModalEditAvailability Icon={IconPersonalInfo} setShowEditAvailabilityModal={setShowEditAvailableModal} user={user} />)}
+
           <ProfilePartInfo userRole={role} title='Información personal' setShowEditModal={setShowEditPersonalInfoModal} setShowEditCredentialsModal={setShowEditCredentialsInfoModal} editable mailPassEdit options={userToInfo(user)} Icon={IconPersonalInfo} />
 
           {/* Modales de edición */}
@@ -136,7 +144,10 @@ export default function ProfileContent ({ role, userData, formData, fetchData = 
               {/* Partes de información de compatibilidad */}
               <ProfilePartInfo highlightFirst title='Perfil' setShowEditModal={setShowEditProfileModal} editable options={aboutMeToInfo(form)} Icon={IconAboutMeInfo} />
               {/* Parte exclusiva de usuarios regulares */}
-              <ProfilePartInfo title='Preferencias sobre asistente' setShowEditModal={setShowEditHelperPreferencesModal} editable options={helperPreferencesToInfo(form)} Icon={IconHelperPreferencesInfo} />
+              {role === 'regular' && (
+                <ProfilePartInfo title='Preferencias sobre asistente' setShowEditModal={setShowEditHelperPreferencesModal} editable options={helperPreferencesToInfo(form)} Icon={IconHelperPreferencesInfo} />
+              )}
+
               <ProfilePartInfo highlightFirst={Boolean(form.formRegularInfo)} title='Ubicación' setShowEditModal={setShowEditLocationModal} editable options={locationToInfo(form)} Icon={IconLocationInfo} />
               <ProfilePartInfo title='Horario' setShowEditModal={setShowEditScheduleModal} editable options={scheduleToInfo(form)} Icon={IconScheduleInfo} />
               <ProfilePartInfo title='Tareas y actividades' setShowEditModal={setShowEditTasksModal} editable options={tasksToInfo(form)} Icon={IconTasks} />

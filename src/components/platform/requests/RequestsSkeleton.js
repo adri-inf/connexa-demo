@@ -27,10 +27,10 @@ export default function RequestsSkeleton () {
               key={index}
               className='p-5 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow animate-pulse'
             >
-              <div className='flex flex-col xm:flex-row gap-x-4 gap-y-4 items-center'>
+              <div className='flex flex-col xm:flex-row gap-x-8 gap-y-4 items-center'>
                 {/* Avatar */}
-                <div className='mx-auto w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center'>
-                  <div className='aspect-square w-full h-full rounded-md bg-gray-300 dark:bg-gray-600' />
+                <div className='mx-auto w-24 h-24 flex items-center justify-center'>
+                  <div className='aspect-square rounded-full w-full h-full bg-gray-300 dark:bg-gray-600' />
                 </div>
 
                 {/* Texto simulado */}
@@ -38,6 +38,7 @@ export default function RequestsSkeleton () {
                   <div className='w-48 h-4 bg-gray-300 dark:bg-gray-600 rounded' />
                   <div className='w-44 h-4 bg-gray-300 dark:bg-gray-600 rounded' />
                   <div className='w-40 h-4 bg-gray-300 dark:bg-gray-600 rounded' />
+                  <div className='w-40 h-4' />
                 </div>
               </div>
             </div>

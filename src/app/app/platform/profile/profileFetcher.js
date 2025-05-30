@@ -21,7 +21,7 @@ export default async function ProfileFetcher () {
     return (
       <>
         {/* Contenido del perfil. Componente client side. */}
-        <ProfileContent role={role} userData={user.data} formData={user.data.form} userId={userId} />
+        <ProfileContent role={role} fetchData userData={user.data} formData={user.data.form} userId={userId} />
       </>
     )
   } catch (error) {
