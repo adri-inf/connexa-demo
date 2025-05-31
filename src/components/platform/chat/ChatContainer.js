@@ -72,9 +72,9 @@ export default function ChatContainer ({ isUserSelected, actualChat, actualUser,
               </Link>
 
               {/* Imagen del usuario */}
-              <Link href={`/app/platform/search/${actualUser.id}`}>
+              <Link className='flex flex-shrink-0' href={`/app/platform/search/${actualUser.id}`}>
                 <img
-                  className='h-12 w-12 rounded-full shadow-lg transition-transform duration-300 hover:scale-110'
+                  className='h-10 w-10 rounded-full shadow-lg transition-transform duration-300 hover:scale-110'
                   src={generateImgSrc(actualUser.profilePicture)} alt='User image'
                 />
               </Link>
