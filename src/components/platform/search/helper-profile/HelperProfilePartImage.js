@@ -42,8 +42,8 @@ export default function HelperProfilePartImage ({ setShowContactModal, user, img
         <div className='flex flex-col'>
           <span className='text-3xl font-semibold'>{user.firstName} {user.lastName}</span>
           <span className='text-lg font-semibold text-primary dark:text-primary-dark'>
-            {user.helperInfo && 'Asistente personal'}
-            {user.regularInfo && 'En busca de asistente personal'}
+            {user.role === 'helper' && 'Asistente personal'}
+            {user.role === 'regular' && 'En busca de asistente personal'}
           </span>
 
           {/* Si no es perfil propio, se muestra botón contactar */}

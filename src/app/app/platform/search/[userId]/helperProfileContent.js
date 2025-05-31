@@ -3,7 +3,7 @@
  */
 'use client'
 import { IconAboutMeInfo, IconTasks, IconScheduleInfo, IconPersonalInfo, IconLocationInfo, IconHelperPreferencesInfo } from '@/components/icons/platform'
-import { InitFlowbite } from '@/components/InitFlowbite'
+import { InitFlowbite } from '@/components/InitFlowbite.js'
 import ProfilePartInfo from '@/components/platform/profile/ProfilePartInfo'
 import ProfileSkeleton from '@/components/platform/profile/ProfileSkeleton'
 import HelperProfilePartImage from '@/components/platform/search/helper-profile/HelperProfilePartImage'

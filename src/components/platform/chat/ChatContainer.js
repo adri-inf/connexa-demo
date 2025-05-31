@@ -78,7 +78,7 @@ export default function ChatContainer ({ isUserSelected, actualChat, actualUser,
                   src={generateImgSrc(actualUser.profilePicture)} alt='User image'
                 />
               </Link>
-              <span className='truncate'>{`${actualUser.firstName} ${actualUser.lastName}`}</span>
+              <span className='truncate'>{`${actualUser.firstName} ${actualUser.lastName || ''}`}</span>
 
               {/*
               <img

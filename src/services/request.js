@@ -114,7 +114,6 @@ export const requestService = {
               type: 'email',
               regularUser: {
                 firstName: 'Isabel',
-                lastName: 'Jiménez',
                 profilePicture: '2.webp',
                 id: '00161b06-cbd0-454a-8f9f-250ceef0cc9c',
                 email: 'isabel@example.com'
@@ -131,7 +130,6 @@ export const requestService = {
               type: 'chat',
               regularUser: {
                 firstName: 'Isabel',
-                lastName: 'Jiménez',
                 profilePicture: '2.webp',
                 id: '00161b06-cbd0-454a-8f9f-250ceef0cc9c'
               }
@@ -147,7 +145,6 @@ export const requestService = {
               type: 'phone',
               regularUser: {
                 firstName: 'Ramón',
-                lastName: 'Pérez',
                 profilePicture: '9.webp',
                 id: '00161b06-cbd0-454a-8f9f-250ceef0cc9c',
                 phone: '658123456'
@@ -164,7 +161,6 @@ export const requestService = {
               type: 'chat',
               regularUser: {
                 firstName: 'Alfonso',
-                lastName: 'Poveda',
                 profilePicture: '1.webp',
                 id: '00161b06-cbd0-454a-8f9f-250ceef0cc9c'
               }
