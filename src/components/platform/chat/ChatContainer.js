@@ -98,7 +98,7 @@ export default function ChatContainer ({ isUserSelected, actualChat, actualUser,
                 <input
                   type='text'
                   id='input'
-                  className='flex-1 p-2 text-sm bg-white dark:bg-gray-800 rounded-lg'
+                  className='min-w-0 flex-1 p-2 text-sm bg-white dark:bg-gray-800 rounded-lg'
                   placeholder='Escribe un mensaje...'
                   autoComplete='off'
                 />
